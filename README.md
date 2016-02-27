@@ -30,7 +30,7 @@ This information is intended to enable anyone to recreate the exact system which
 
 # Using Julia to automatically download the source code and the paper from Github
 
-The following code uses the package manager in Julia to download the `NonstationaryPhase` paper and install it as a package. 
+The following code uses the package manager in Julia to download and install the package `NonstationaryPhase`. 
 
 ```julia
 julia> Pkg.clone("https://github.com/EthanAnderes/NonstationaryPhase.jl.git")
