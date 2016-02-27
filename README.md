@@ -36,7 +36,7 @@ The following code uses the package manager in Julia to download and install the
 julia> Pkg.clone("https://github.com/EthanAnderes/NonstationaryPhase.jl.git")
 ```
 
-Note: `julia>` above indicates that the code which follows should be executed in the Julia REPL (i.e. the Julia command line). Typically the package is downloaded to `~/.julia/v0.4/`. You can use Julia to tell you where the package is with the command `Pkg.dir("NonstationaryPhase")` in the Julia REPL. 
+Note: `julia>` above indicates that the code which follows should be executed in the Julia REPL (i.e. the Julia command line). Typically the package is downloaded to directory `~/.julia/v0.4/` or something similar. You can also use Julia to tell you where the package is with the command `Pkg.dir("NonstationaryPhase")` in the Julia REPL. 
 
 Now use the following code to generate Figure 1 (for example) from the paper.
 
