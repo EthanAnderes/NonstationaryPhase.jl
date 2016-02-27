@@ -4,7 +4,7 @@
 
 This is a Julia package which holds all the source code used in the paper "A generalized quadratic estimate for random field nonstationarity" by Ethan Anderes (University of California at Davis) and Joe Guinness (North Carolina State University). 
 
-All the code was run on Julia 0.4 (installation instructions can be found at [julialang.org](http://julialang.org)). The exact version information for the system which generated the figures found in the paper are as follows. 
+All the code was run on Julia 0.4 (installation instructions can be found at [julialang.org](http://julialang.org)). The exact version information for the system which generated the figures are given as follows. 
 
 ```julia
 julia> Pkg.installed("PyPlot")
@@ -26,7 +26,7 @@ Platform Info:
   LLVM: libLLVM-3.3
 ```
 
-This information is intended to enable anyone to recreate the exact system which generated the figures shown in the paper. That said, we expect the code to be forward compatible with stable releases.
+This information is intended to enable anyone to recreate the exact system which generated the figures in the paper. That said, we expect the code to be forward compatible with stable releases.
 
 # Using Julia to automatically download the source code and the paper from Github
 
