@@ -1,0 +1,149 @@
+\begin{thebibliography}{10}
+
+\bibitem{ambrosio2008gradient}
+L.~Ambrosio, N.~Gigli, and G.~Savar{\'e}.
+\newblock {\em Gradient flows: in metric spaces and in the space of probability
+  measures}.
+\newblock Springer Science \& Business Media, 2008.
+
+\bibitem{dahlhaus1997fitting}
+R.~Dahlhaus.
+\newblock Fitting time series models to nonstationary processes.
+\newblock {\em Annals of Statistics}, 25(1):1--37, 1997.
+
+\bibitem{dahlhaus2000likelihood}
+R.~Dahlhaus.
+\newblock A likelihood approximation for locally stationary processes.
+\newblock {\em Annals of Statistics}, pages 1762--1794, 2000.
+
+\bibitem{das2011detection}
+S.~Das et~al.
+\newblock Detection of the power spectrum of cosmic microwave background
+  lensing by the {A}tacama cosmology telescope.
+\newblock {\em Physical Review Letters}, 107(2):021301, 2011.
+
+\bibitem{fuglstad2015exploring}
+G.~Fuglstad, F.~Lindgren, D.~Simpson, and H.~Rue.
+\newblock Exploring a new class of non-stationary spatial gaussian random
+  fields with varying local anisotropy.
+\newblock {\em Statistica Sinica}, 25(1):115--133, 2015.
+
+\bibitem{fuglstad2015does}
+G.~Fuglstad, D.~Simpson, F.~Lindgren, and H.~Rue.
+\newblock Does non-stationary spatial data always require non-stationary random
+  fields?
+\newblock {\em Spatial Statistics}, 14:505--531, 2015.
+
+\bibitem{Gikhman_Skorokhod_book_v1}
+I.~Gikhman and A.~Skorokhod.
+\newblock {\em The Theory of Stochastic Processes I}.
+\newblock Classics in Mathematics. Springer Berlin Heidelberg, 2015.
+
+\bibitem{giner2014monotonically}
+G.~Giner and G.~Smyth.
+\newblock A monotonically convergent {N}ewton iteration for the quantiles of
+  any unimodal distribution, with application to the inverse {G}aussian
+  distribution.
+\newblock 2014.
+
+\bibitem{hsing2016local}
+T.~Hsing, T.~Brown, and B.~Thelen.
+\newblock Local intrinsic stationarity and its inference.
+\newblock {\em Annals of Statistics}.
+
+\bibitem{hu2001mapping}
+W.~Hu.
+\newblock Mapping the dark matter through the cosmic microwave background
+  damping tail.
+\newblock {\em The Astrophysical Journal Letters}, 557(2):L79, 2001.
+
+\bibitem{hu2002mass}
+W.~Hu and T.~Okamoto.
+\newblock Mass reconstruction with cosmic microwave background polarization.
+\newblock {\em The Astrophysical Journal}, 574(2):566, 2002.
+
+\bibitem{ibragimov2012gaussian}
+I.~Ibragimov and Yurii~A. Rozanov.
+\newblock {\em Gaussian random processes}, volume~9.
+\newblock Springer Science \& Business Media, 2012.
+
+\bibitem{isserlis1916certain}
+L.~Isserlis.
+\newblock On certain probable errors and correlation coefficients of multiple
+  frequency distributions with skew regression.
+\newblock {\em Biometrika}, 11(3):185--190, 1916.
+
+\bibitem{namikawa2013bias}
+T.~Namikawa, D.~Hanson, and R.~Takahashi.
+\newblock Bias-hardened {CMB} lensing.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  431(1):609--620, 2013.
+
+\bibitem{paciorek2006spatial}
+C.~Paciorek and M.~Schervish.
+\newblock Spatial modelling using a new class of nonstationary covariance
+  functions.
+\newblock {\em Environmetrics}, 17(5):483--506, 2006.
+
+\bibitem{planck2013lensing}
+{Planck Collaboration}.
+\newblock {Planck 2013 results. XVII. Gravitational lensing by large-scale
+  structure}.
+\newblock {\em Astronomy and Astrophysics}, 571:A17, November 2014.
+
+\bibitem{planck2015lensing}
+{Planck Collaboration}.
+\newblock {Planck 2015 results. XV. Gravitational lensing}.
+\newblock {\em ArXiv e-prints}, February 2015.
+
+\bibitem{priestley1965evolutionary}
+M.~Priestley.
+\newblock Evolutionary spectra and non-stationary processes.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (Methodological)}, pages 204--237, 1965.
+
+\bibitem{priestley1981spectral}
+M.~Priestley.
+\newblock {\em Spectral analysis and time series}, volume~2.
+\newblock Academic press, 1981.
+
+\bibitem{sampson2010constructions}
+P.~Sampson.
+\newblock Constructions for nonstationary spatial processes.
+\newblock {\em Handbook of Spatial Statistics}, pages 119--130, 2010.
+
+\bibitem{sampson1992nonparametric}
+P.~Sampson and P.~Guttorp.
+\newblock Nonparametric estimation of nonstationary spatial covariance
+  structure.
+\newblock {\em Journal of the American Statistical Association},
+  87(417):108--119, 1992.
+
+\bibitem{stein2012interpolation}
+M.~Stein.
+\newblock {\em Interpolation of spatial data: some theory for {K}riging}.
+\newblock Springer Science \& Business Media, 2012.
+
+\bibitem{Polarbear2014}
+{The Polarbear Collaboration}.
+\newblock {A Measurement of the Cosmic Microwave Background B-mode Polarization
+  Power Spectrum at Sub-degree Scales with POLARBEAR}.
+\newblock {\em The Astrophysical Journal}, 794:171, October 2014.
+
+\bibitem{van2012measurement}
+A.~Van~Engelen et~al.
+\newblock A measurement of gravitational lensing of the microwave background
+  using south pole telescope data.
+\newblock {\em The Astrophysical Journal}, 756(2):142, 2012.
+
+\bibitem{villani2003topics}
+C.~Villani.
+\newblock {\em Topics in optimal transportation}.
+\newblock Number~58. American Mathematical Soc., 2003.
+
+\bibitem{wick1950evaluation}
+G.~Wick.
+\newblock The evaluation of the collision matrix.
+\newblock {\em Physical review}, 80(2):268, 1950.
+
+\end{thebibliography}

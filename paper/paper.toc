@@ -1,0 +1,19 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Notation}{3}{subsection.1.1}
+\contentsline {section}{\numberline {2}Locally invariant nonstationary random fields}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1} A generalized quadratic estimate of $\phi (\boldsymbol x)$ }{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}The Hu and Okamoto lensing estimate as a special case of $\mathaccentV {hat}05E\phi _{\boldsymbol \ell }$}{7}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Variance and bias analytic approximation}{7}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Variance spectral density $C_{\boldsymbol \ell }^{\text {var }\mathaccentV {hat}05E\phi }$}{8}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Bias spectral density $C_{\boldsymbol \ell }^{\text {bias }\mathaccentV {hat}05E\phi }$}{9}{subsubsection.2.3.2}
+\contentsline {subsection}{\numberline {2.4}An illustration of the bias reduction due to local invariance}{10}{subsection.2.4}
+\contentsline {section}{\numberline {3}Nonstationary spectral phase model}{12}{section.3}
+\contentsline {subsection}{\numberline {3.1}Locally attainable spectral densities}{13}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Modeling $\boldsymbol \xi _{\boldsymbol k}, C_{\boldsymbol k}$ and $\boldsymbol \eta _{\boldsymbol k}$}{17}{subsection.3.2}
+\contentsline {paragraph}{Modeling $C_{\boldsymbol k}$ and $\boldsymbol \eta _{\boldsymbol k}$.}{17}{section*.3}
+\contentsline {paragraph}{Modeling $\boldsymbol \xi _{\boldsymbol k}$.}{17}{section*.4}
+\contentsline {subsection}{\numberline {3.3}Nonstationary phase example $d=1$}{17}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Nonstationary phase example $d=2$}{21}{subsection.3.4}
+\contentsline {section}{\numberline {4}Discusssion}{22}{section.4}
+\contentsline {section}{References}{23}{section*.6}
+\contentsline {section}{\numberline {A}Detailed derivations}{25}{appendix.A}
