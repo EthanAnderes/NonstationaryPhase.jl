@@ -53,7 +53,7 @@ This will save `figure1.pdf` to the current directory.
 You can either directly delete the package directory (e.g. use something like `rm -fr ~/.julia/v0.4/NonstationaryPhase` in the terminal). Or you can use the Julia package manager to remove it for you with the command `Pkg.rm("NonstationaryPhase")`.
 
 
-# Clone the package directly from github.
+# Clone the package directly from Github.
 
 If you want to avoid using the Julia package manager you can use the following code to download the repo manually from the terminal.
 
