@@ -48,27 +48,26 @@ julia> include("make_figure_1.jl")
 
 This will save `figure1.pdf` to the current directory.
 
-## Removing the package NonstationaryPhase
+### Removing the package
 
 You can either directly delete the package directory (e.g. use something like `rm -fr ~/.julia/v0.4/NonstationaryPhase` in the terminal). Or you can use the Julia package manager to remove it for you with the command `Pkg.rm("NonstationaryPhase")`.
 
 
 # Clone the package directly from github.
 
-If you want to avoid using the Julia package manager you can use the following code to download git repo `NonstationaryPhase` manually from the terminal.
+If you want to avoid using the Julia package manager you can use the following code to download the repo manually from the terminal.
 
 ```
 $ git clone https://github.com/EthanAnderes/NonstationaryPhase.jl.git
 ```
 
-Now you need too make sure Julia knows where to find `NonstationaryPhase.jl`. 
-
+You need too make sure Julia knows where to find `NonstationaryPhase.jl`. 
 
 ```julia
 julia> push!(LOAD_PATH, "<path to the directory containing NonstationaryPhase.jl>")
 ```
 
-Now you should be able to run the code for Figure 1 (for example) as follows.
+Now you should be able to run the following code to generate Figure 1 (for example).
 
 ```julia
 
