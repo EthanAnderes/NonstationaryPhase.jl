@@ -77,3 +77,7 @@ julia> include("make_figure_1.jl")
 ```
 
 This will save `figure1.pdf` to the current directory.
+
+# Runtime
+
+When running the code be sure to keep in mind that figures 2, 3 and 4 are simulation heavy. Therefore, expect them to take a few hours to run (but no longer than one day on a standard laptop).
