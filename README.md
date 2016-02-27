@@ -61,7 +61,7 @@ If you want to avoid using the Julia package manager you can use the following c
 $ git clone https://github.com/EthanAnderes/NonstationaryPhase.jl.git
 ```
 
-You need too make sure Julia knows where to find `NonstationaryPhase.jl`. 
+You need to make sure Julia knows where to find `NonstationaryPhase.jl`. 
 
 ```julia
 julia> push!(LOAD_PATH, "<path to the directory containing NonstationaryPhase.jl>")
