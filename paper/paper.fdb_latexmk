@@ -1,18 +1,18 @@
 # Fdb version 3
-["bibtex paper"] 1456619705 "paper.aux" "paper.bbl" "paper" 1456628860
+["bibtex paper"] 1456619705 "paper.aux" "paper.bbl" "paper" 1456639194
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "paper.aux" 1456628860 24213 dfdc9337ce693cbd9d50932b2c69014e ""
+  "paper.aux" 1456629450 24213 dfdc9337ce693cbd9d50932b2c69014e ""
   "paper.bcf" 0 -1 0 ""
   "refs.bib" 1456611190 12952 363701956a44b914a02671acd6d3c971 ""
   (generated)
-  "paper.bbl"
   "paper.blg"
-["pdflatex"] 1456628858 "paper.tex" "paper.pdf" "paper" 1456628860
+  "paper.bbl"
+["pdflatex"] 1456629449 "paper.tex" "paper.pdf" "paper" 1456639194
   "./figure1.pdf" 1456619216 17304 357e91b59d8c370a38ca6dc66a9aaef2 ""
   "./figure2.pdf" 1456619216 83368 0765a8d6708a3b4ed592b64e8d3f8b14 ""
   "./figure3.pdf" 1456619216 152067 49e0dd3adb006b838a738eaa7bdf1f4b ""
   "./figure4.pdf" 1456619216 664531 1008836b53d7e8de95bb4aab9ebede84 ""
-  "./paper.out" 1456628860 1435 6fd92133e328a7e0fdfe4a63752b8342 ""
+  "./paper.out" 1456629450 1435 6fd92133e328a7e0fdfe4a63752b8342 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -197,14 +197,14 @@
   "imsart.cls" 1435623418 5669 1be259565a85a1f70ef82b287b469aee ""
   "imsart.cnf" 0 -1 0 ""
   "imsart.sty" 1435623418 96228 1b5f77adbf3d8178378811412ce45cbc ""
-  "paper.aux" 1456628860 24213 dfdc9337ce693cbd9d50932b2c69014e ""
+  "paper.aux" 1456629450 24213 dfdc9337ce693cbd9d50932b2c69014e ""
   "paper.bbl" 1456619705 5156 081814db48e020b629998039cf6201bc "bibtex paper"
-  "paper.out" 1456628860 1435 6fd92133e328a7e0fdfe4a63752b8342 ""
-  "paper.tex" 1456628858 139227 decf6e4325ec17259ef48084e7c4055e ""
-  "paper.toc" 1456628860 2050 7583842b13b7467bf2de84215d3ad527 ""
+  "paper.out" 1456629450 1435 6fd92133e328a7e0fdfe4a63752b8342 ""
+  "paper.tex" 1456639193 139237 7898096f84ee37ba157ae270deb46482 ""
+  "paper.toc" 1456629450 2050 7583842b13b7467bf2de84215d3ad527 ""
   (generated)
-  "paper.toc"
   "paper.out"
-  "paper.log"
   "paper.pdf"
   "paper.aux"
+  "paper.toc"
+  "paper.log"
