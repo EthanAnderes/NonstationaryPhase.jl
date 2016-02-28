@@ -482,7 +482,7 @@ Both plots use the same axis range and additionally show the signal spectral den
 
 
 \begin{figure}[H]
-\includegraphics[height=6cm]{figure1.pdf}
+\includegraphics[height=6.2cm]{figure1.pdf}
 \caption{
  These plots are intended to give an illustration  of the bias attenuation effect of the local invariant covariance structure (the specifics of the models are given in Section \ref{subsubsection: illustration of the bias reduction}).  The plot \textbf{at left} corresponds to the local invariant model and show estimation variance $\ell^2 C_{\ell}^{\text{var }\hat \phi}$ (\textbf{solid-green}), bias $\ell^2 C_{\ell}^{\text{bias }\hat \phi}$ (\textbf{dashed-red}) and the signal $\ell^2 C_{\ell}^{\phi\phi}$ (\textbf{dotted-black}). In contrast the plot \textbf{at right} shows their non local invariant counterparts.  Notice that the locally invariant second order bias is orders of magnitude smaller than the corresponding non local invariant bias, even though the functions $ C^{(1)}_k$ and $ C^{(2)}_k$ are similar to their non local invariant counterparts  $\widetilde C^{(1)}_k$ and $\widetilde C^{(2)}_k$. }
 \label{Figure 1}
@@ -795,16 +795,11 @@ This will be explored in more detail in Section \ref{section: nonstat example d=
 \label{section: nonstat example d=1}
 
 
+
+
+
+
 In this section we present a simulation example to illustrate the quadratic estimate of $\bs \theta(\bs x)$, or equivalently the potential $\phi(\bs x)$, when observing a single realization of a nonstationary phase random field $Z(\bs x)$ in dimension $d=1$ (c.f. Definition \ref{def: nonstate phase}).  According to our notational conventions, vector quantities such as  $\bs x, \bs k, \bs \xi_{\bs k},  \bs\eta_{\bs k}, \bs \theta(\bs x)$ are replaced with non-bold scalar notation $x, k, \xi_{k},  \eta_{k}, \theta(x)$ to indicate scalar quantities for $d=1$. There are multiple points we hope to convey with this example. The first is that the quadratic estimate $\hat\phi_\ell$, constructed to detect a spatially varying smoothness parameter, is fast and accurate. The second point is that $C^{\text{var\,}\hat\phi}_{\ell}$ and $C^{\text{bias\,}\hat\phi}_{\ell}$  accurately quantify the empirical variance and bias of $\hat\phi_\ell$. A third point is that the fast approximation to $C^{\text{bias\,}\hat\phi}_{\ell}$, discussed in the last paragraph of Section \ref{SubSection: bias}, is accurate over a wide range of wave numbers. Finally we illustrate qualitative features of the estimation bias which results when $\theta^\prime(x)$ is large enough to exceed the symmetric two-sided cut locus discussed in Section \ref{section: modeling xi, C and eta} (c.f. Claim \ref{claim: cut locus}).
-
-
-
-\begin{figure}
-\includegraphics[height=16cm]{figure2.pdf}%
-\caption{ This figure shows a simulation of a nonstationary phase random field $Z(x)$ (\textbf{top}), the quadratic estimate of  $\theta^\prime(x)$ (\textbf{middle}) and the spectral characterizations of estimation variance (\textbf{bottom-left}) and estimation bias (\textbf{bottom-right}). The details of the simulation are given in Section \ref{section: nonstat example d=1}. In the \textbf{middle plot} the \textbf{blue line} shows the value of $\theta^\prime(x)=\phi^{\prime\prime}(x)$ which characterizes the nonstationarity in $Z(x)$ through Definition \ref{def: nonstate phase}, the  \textbf{grey lines} show different quadratic estimates $\hat\theta^\prime(x)$ each one applied to an independent realizations of $Z(x)$ with the same $\theta(x)$ and the \textbf{dashed line} shows the empirical average of $\hat\theta^\prime(x)$ over 100 such realizations. In the \textbf{bottom-left plot}
-The main purpose of this simulation is intended to illustrate the accuracy of the quadratic estimate and the ability of $C^{\text{var\,}\hat\phi}_{\bs \ell}$ and $C^{\text{bias\,}\hat\phi}_{\bs \ell}$ to approximate the empirical variance and bias of the estimate. A secondary goal of this figure is to also show that the fast approximation to $C^{\text{bias\,}\hat\phi}_{\bs \ell}$ is very accurate over a wide range of small wave numbers.}
-\label{Figure 2 zx and var}
-\end{figure}
 
 
 
@@ -819,21 +814,27 @@ The quantities $C^{(0)}_\ell, C^{(1)}_\ell, C^{(2)}_\ell$ and $C^{ZZobs}_\ell$ u
 
 
 
+
+
+
+\begin{figure}
+\includegraphics[height=15cm]{figure2.pdf}%
+\caption{ This figure shows a simulation of a nonstationary phase random field $Z(x)$ (\textbf{top}), the quadratic estimate of  $\theta^\prime(x)$ (\textbf{middle}) and the spectral characterizations of estimation variance (\textbf{bottom-left}) and estimation bias (\textbf{bottom-right}). The details of the simulation are given in Section \ref{section: nonstat example d=1}. In the \textbf{middle plot} the \textbf{blue line} shows the value of $\theta^\prime(x)=\phi^{\prime\prime}(x)$ which characterizes the nonstationarity in $Z(x)$ through Definition \ref{def: nonstate phase}, the  \textbf{grey lines} show different quadratic estimates $\hat\theta^\prime(x)$ each one applied to an independent realizations of $Z(x)$ with the same $\theta(x)$ and the \textbf{dashed line} shows the empirical average of $\hat\theta^\prime(x)$ over 100 such realizations. In the \textbf{bottom-left plot}
+The main purpose of this simulation is intended to illustrate the accuracy of the quadratic estimate and the ability of $C^{\text{var\,}\hat\phi}_{\bs \ell}$ and $C^{\text{bias\,}\hat\phi}_{\bs \ell}$ to approximate the empirical variance and bias of the estimate. A secondary goal of this figure is to also show that the fast approximation to $C^{\text{bias\,}\hat\phi}_{\bs \ell}$ is very accurate over a wide range of small wave numbers.}
+\label{Figure 2 zx and var}
+\end{figure}
+
+
+
+
 The process $Z(x)$ in this section is defined on $[-5,5)$ with periodic boundary conditions. 
 The observed process $Z^{obs}(x)$ is simulated without additive noise on $10^4$ evenly spaced observation locations in $[-5,5)$.  A simple discrete Riemann sum approximation, at each observed $x$, was used to approximate to the integral (\ref{eq: nonstate phase}). In general, this type of approximation will result in aliasing errors. Generating a distributionally exact simulation of $Z(x)$, without any approximation, appears to be an open problem.   It is not yet clear what impact the aliasing errors, present in our simulation, have on the quadratic estimate. However, we found little empirical difference in the performance of the quadratic estimate when reducing the aliasing errors by increasing the frequency upper limit used for the Riemann sum approximation. 
 
 
 
 
-\begin{figure}
-\includegraphics[height=16cm]{figure3.pdf}%
-\caption{ An illustration of the quadratic estimate bias which results when $\theta^\prime(x)$ is large enough to exceed the \textbf{symmetric two-sided cut locus} discussed Section \ref{section: modeling xi, C and eta} (c.f. Claim \ref{claim: cut locus}). The \textbf{shaded region} shown in the \textbf{middle plot} corresponds to the interior of the two-sided cut locus. When the true  $\theta^\prime(x)$ (shown in \textbf{blue}) exits the symmetric two-sided cut locus, the quadratic estimate suffers from large bias, attenuating for negative $\theta^\prime(x)$ and amplifying for positive $\theta^\prime(x)$. Note that the only difference between this figure and Figure \ref{Figure 2 zx and var} is the parameter $t_0$ (c.f. Section \ref{section: modeling xi, C and eta}) which was reduced by a factor of $1/7$. This has the effect of shrinking the symmetric two-sided cut locus. All other parameters, including the random seed, are the same.}
-\label{Figure 2 zx and var, extra bias}
-\end{figure}
-
 
 Figure \ref{Figure 2 zx and var} shows the results of our simulation when $t_0$ is set to $1.5$. The \textbf{top plot} shows a simulation of the nonstationary phase process $Z(x)$. The \textbf{blue line} in the \textbf{middle plot} shows $\theta^\prime(x)$ along with $5$ realizations of the quadratic estimate $\hat\theta^\prime(x)$, shown in \textbf{grey}, each one applied to an independent realization of $Z(x)$ with the same $\phi(x)$ . The \textbf{dashed line} in the \textbf{middle plot} shows an empirical estimate to $E(\hat\theta^\prime(x)|\phi)$ based on averaging the quadratic estimate applied to $100$ independent realizations $Z(x)$ all simulated with the same nonstationary potential $\phi(x)$. On average, computing these $100$ quadratic estimates (each based on $10^4$ observations) took $0.008$ seconds on a 2013 MacBook Pro with a 2.3 GHz Intel Core i7 CPU. This illustrates that the quadratic estimate can be computed extremely fast on a dense set of observations. Notice also the estimate is accurate with respect to both variance and bias. Indeed, by comparing signal spectral density $\ell^2 C_\ell^{\phi\phi}$ (\textbf{dotted black line} in \textbf{both bottom plots})  with  $\ell^2 C^{\text{var\,}\hat\phi}_{\ell}$ and $\ell^2 C^{\text{bias\,}\hat\phi}_{\ell}$  (\textbf{green and red lines} respectively) one can see that the signal-to-noise ratio for estimation accuracy per-frequency is significantly greater than $1$ for a large range of wavenumbers. The \textbf{bottom two plots} in Figure \ref{Figure 2 zx and var} show the accuracy of the analytic approximations $\ell^2 C^{\text{var\,}\hat\phi}_{\ell}$ and  $\ell^2 C^{\text{bias\,}\hat\phi}_{\ell}$ for quantifying the empirical variance and bias (\textbf{green and red dots} respectively) computed from the $100$ realizations of $\hat\theta^\prime(x)$. The computation of $C^{\text{var\,}\hat\phi}_{\ell}$ took $0.098$ seconds. The fast approximation to  $\ell^2 C^{\text{bias\,}\hat\phi}_{\ell}$ is plotted with the \textbf{dashed blue line} in the \textbf{bottom right plot}. This approximation can be seen to be very accurate, nearly indistinguishable from the \textbf{red line}, and took only $0.308$ seconds to compute (compared to $99.44$ seconds for computing  $C^{\text{bias\,}\hat\phi}_{\ell}$ directly).
-
 
 
 
@@ -841,6 +842,14 @@ The only difference between Figure \ref{Figure 2 zx and var} and Figure \ref{Fig
 is that $t_0$ is reduced from $1.5$ to $1.5/7$. This has the effect of shrinking the two-sided cut locus (discussed in Section \ref{section: modeling xi, C and eta}). This is  equivalent to scaling $\phi(x)$ by a factor of $7$ which has the effect of dramatically increasing the bias in the quadratic estimate. Indeed, the main point of Figure \ref{Figure 2 zx and var, extra bias} is to illustrate the qualitative features of the quadratic estimate bias when $\phi(x)$ is too large for the linear approximation in (\ref{first order term, intro}) to hold. 
 Indeed, when the magnitude of the true $\theta^\prime(x)$ exceeds the two-sided cut locus, the estimate $\hat\theta^\prime(x)$ transitions from a low bias estimate to a bias dominated one as seen in the \textbf{middle plot}. This is presumably due to the ability of the two-sided cut locus to identify when the geodesic path of local spectral densities begins to curl in on itself, creating an ill-posed inversion from observed local spectral density to estimate $\phi(x)$.
  
+
+
+\begin{figure}
+\includegraphics[height=15cm]{figure3.pdf}%
+\caption{ An illustration of the quadratic estimate bias which results when $\theta^\prime(x)$ is large enough to exceed the \textbf{symmetric two-sided cut locus} discussed Section \ref{section: modeling xi, C and eta} (c.f. Claim \ref{claim: cut locus}). The \textbf{shaded region} shown in the \textbf{middle plot} corresponds to the interior of the two-sided cut locus. When the true  $\theta^\prime(x)$ (shown in \textbf{blue}) exits the symmetric two-sided cut locus, the quadratic estimate suffers from large bias, attenuating for negative $\theta^\prime(x)$ and amplifying for positive $\theta^\prime(x)$. Note that the only difference between this figure and Figure \ref{Figure 2 zx and var} is the parameter $t_0$ (c.f. Section \ref{section: modeling xi, C and eta}) which was reduced by a factor of $1/7$. This has the effect of shrinking the symmetric two-sided cut locus. All other parameters, including the random seed, are the same.}
+\label{Figure 2 zx and var, extra bias}
+\end{figure}
+
 
 
 
@@ -864,13 +873,6 @@ The ground truth potential $\phi(\bs x)$, used to generate the nonstationarity i
 Figure \ref{Figure 3} graphically summarizes the simulation results. The \textbf{top left image} shows the quadratic estimate $\hat\phi(\bs x)$ and the \textbf{top right image} shows the ground truth $\phi(\bs x)$. These top images are intended to illustrate the high accuracy of the estimate. The \textbf{bottom right image} shows the data $Z^{obs}(\bs x)$ used to generate the estimate $\hat\phi(\bs x)$. The \textbf{bottom left plot} shows the radial profile of $|\bs \ell|^2C_{\bs \ell}^{\text{var }\hat\phi}$ (\textbf{solid green}), $|\bs \ell|^2C_{\bs \ell}^{\phi\phi}$ (\textbf{dotted black}) along with the fast approximation to $|\bs \ell|^2C_{\bs \ell}^{\text{bias }\hat\phi}$ (\textbf{dashed blue}) and the corresponding radially averaged empirical mean squared error per wavenumber (\textbf{dotted green}). The computation of $\hat\phi_{\bs \ell}$ and  $C_{\bs \ell}^{\text{var }\hat\phi}$ took $0.25$ seconds and $0.23$ seconds to compute, respectively. The fast approximation to $C_{\bs \ell}^{\text{bias }\hat\phi}$ took $77$ seconds (the exact value of $C_{\bs \ell}^{\text{bias }\hat\phi}$ is not computed in this case since the imputation is intensive and takes on the order of hours in our implementation and is not shown).
 
 
-
-\begin{figure}[H]
-\includegraphics[height=16cm]{figure4.pdf}%
-\caption{An illustration of the quadratic estimate in $d=2$ for a nonstationary phase random field $Z(\bs x)$. The model for $Z(\bs x)$ is defined to have local variation in both the local smoothness of $Z(\bs x)$ and a local range parameter, where an increase of local smoothness corresponds reduction of local range and vice versa. The \textbf{top left image} shows the quadratic estimate $\hat\phi(\bs x)$ with the  ground truth $\phi(\bs x)$ shown in the \textbf{top right image} and the data shown in the \textbf{bottom right image}.  The \textbf{bottom left plot} shows the radial profile of  $|\bs \ell|^2C_{\bs \ell}^{\text{var }\hat\phi}$ (\textbf{solid green}), $|\bs \ell|^2C_{\bs \ell}^{\phi\phi}$ (\textbf{dotted black}) along with the fast approximation to $|\bs \ell|^2C_{\bs \ell}^{\text{bias }\hat\phi}$ (\textbf{dashed blue}) and the corresponding radially averaged empirical mean squared error per wavenumber (\textbf{dotted green}). See Section \ref{section: nonstat example d=2} for further simulation details.
- }
-\label{Figure 3}
-\end{figure}
 
 
 
@@ -898,6 +900,13 @@ We finish with a discussion of Assumption \ref{Assumption 2} that stipulates $\b
 Random fields $Z(\bs x)$, which have a covariance function of the form (\ref{eq: embedding}), are simply traces of stationary random fields defined on the higher dimensional space $\Bbb R^m$, restricted to the $d$-dimensional parameterized surface $\{\bs\theta(\bs x):\bs x\in\Bbb R^d\}$. Viewed from this perspective, it appears plausible that there exists a deeper, more geometric, picture of local invariance and quadratic estimation. It is not yet clear whether or not this viewpoint is useful, but it is tempting to imagine that the generalized quadratic estimate is simply a manifold embedding estimate in disguise. If such a development bears theoretical fruit, it would be a major step in the direction of a unified statistical theory of nonstationary random fields. 
 
 
+
+\begin{figure}
+\includegraphics[height=15cm]{figure4.pdf}%
+\caption{An illustration of the quadratic estimate in $d=2$ for a nonstationary phase random field $Z(\bs x)$. The model for $Z(\bs x)$ is defined to have local variation in both the local smoothness of $Z(\bs x)$ and a local range parameter, where an increase of local smoothness corresponds reduction of local range and vice versa. The \textbf{top left image} shows the quadratic estimate $\hat\phi(\bs x)$ with the  ground truth $\phi(\bs x)$ shown in the \textbf{top right image} and the data shown in the \textbf{bottom right image}.  The \textbf{bottom left plot} shows the radial profile of  $|\bs \ell|^2C_{\bs \ell}^{\text{var }\hat\phi}$ (\textbf{solid green}), $|\bs \ell|^2C_{\bs \ell}^{\phi\phi}$ (\textbf{dotted black}) along with the fast approximation to $|\bs \ell|^2C_{\bs \ell}^{\text{bias }\hat\phi}$ (\textbf{dashed blue}) and the corresponding radially averaged empirical mean squared error per wavenumber (\textbf{dotted green}). See Section \ref{section: nonstat example d=2} for further simulation details.
+ }
+\label{Figure 3}
+\end{figure}
 
 
 
@@ -1104,7 +1113,7 @@ where $\mathscr A_{p,q, \bs\ell}:= \bs C^{(1)}_{p,\bs\ell} \bs C^{{(1)}^*}_{q,\b
 
 \begin{claim}[{\bf Estimation variance}]\label{thm: quantify the var fluctuations of hat phi}
     Suppose $X(\bs x)$ is a mean-zero Gaussian random field with spectral density given by $C^{X\!X}_{\bs \ell}$.
-    Then the spectral density $C_{\bs\ell}^{\text{\rm var }\hat{\phi}}$, defined by $E\big(\hat\phi_{\bs \ell}\{X,\!X\} \, \hat\phi_{\bs \ell^\prime}\{X,\!X\}^*\big) =  \delta^{\phantom{*}}_{\bs \ell-\bs \ell^\prime} C^{\text{var }\hat\phi}_{\bs \ell}$, satisfies
+    Then the spectral density of $\hat\phi_{\bs \ell}\{X,\!X\}$ (c.f. Definition \ref{def: quad est applied to X}), which satisfies $\delta^{\phantom{*}}_{\bs \ell-\bs \ell^\prime}C^{\text{\rm var }\hat\phi}_{\bs \ell} = E\big(\hat\phi_{\bs \ell}\{X,\!X\} \, \hat\phi_{\bs \ell^\prime}\{X,\!X\}^*\big) $, is given as follows
     \begin{align}
         C_{\bs\ell}^{\text{\rm var }\hat{\phi}}
         &= 2 A_{\bs\ell}^2
@@ -1133,17 +1142,17 @@ where $\mathscr A_{p,q, \bs\ell}:= \bs C^{(1)}_{p,\bs\ell} \bs C^{{(1)}^*}_{q,\b
         {\Big(\bs\xi_{\bs \ell^\prime} \!\cdot\!\bs C^{{(1)}}_{\bs k^\prime} - \bs\xi_{\bs \ell^\prime} \!\cdot\!\bs C^{{(1)}}_{\bs k^\prime+\bs \ell^\prime}\Big)}^{}\nonumber\\
         &\qquad\qquad\qquad
         \times
-        \frac{E\bigl(X_{\bs k+\bs \ell}X_{-\bs k}X_{-\bs k^\prime-\bs\ell}X_{\bs k^\prime}\bigr)}{C^{ZZobs}_{\bs k+\bs \ell}C^{ZZobs}_{\bs k}C^{ZZobs}_{\bs k^\prime+\bs \ell^\prime}C^{ZZobs}_{\bs k^\prime}}
-        \frac{d\bs kd\bs k^\prime}{{(2\pi)}^{d}}\label{wicks term in Cvar}
+        \frac{E\bigl(X_{\bs k+\bs \ell}X_{-\bs k}X_{-\bs k^\prime-\bs\ell^\prime}X_{\bs k^\prime}\bigr)}{C^{ZZobs}_{\bs k+\bs \ell}C^{ZZobs}_{\bs k}C^{ZZobs}_{\bs k^\prime+\bs \ell^\prime}C^{ZZobs}_{\bs k^\prime}}
+        \frac{d\bs kd\bs k^\prime}{{(2\pi)}^{d}}.\label{wicks term in Cvar}
     \end{align}
     Now expanding the above fourth moment, using Wick's theorem (also called Isserlis's Theorem) \cite{wick1950evaluation, isserlis1916certain} and the Gaussianity of $X(\bs x)$, one obtains
     \begin{align*}
-        E\bigl(X_{\bs k+\bs \ell}X_{-\bs k}X_{-\bs k^\prime-\bs\ell}X_{\bs k^\prime}\bigr)
-        &=C^{X\!X}_{\bs k+\bs \ell}C^{X\!X}_{-\bs k^\prime}\bigl( \delta_{\bs\ell}\delta_{\bs\ell^\prime} +  \delta_{\bs k-\bs k^\prime + \bs \ell-\bs\ell^\prime}\delta_{\bs k-\bs k^\prime} +  \delta_{\bs k + \bs k^\prime +\bs\ell}\delta_{\bs k + \bs k^\prime +\bs\ell}   \bigr) \\
+        E\bigl(X_{\bs k+\bs \ell}X_{-\bs k}X_{-\bs k^\prime-\bs\ell^\prime}X_{\bs k^\prime}\bigr)
+        &=C^{X\!X}_{\bs k+\bs \ell}C^{X\!X}_{-\bs k^\prime}\bigl( \delta_{\bs\ell}\delta_{\bs\ell^\prime} +  \delta_{\bs k-\bs k^\prime + \bs \ell-\bs\ell^\prime}\delta_{\bs k-\bs k^\prime} +  \delta_{\bs k + \bs k^\prime +\bs\ell}\delta_{\bs k + \bs k^\prime +\bs\ell^\prime}   \bigr) \\
         &=C^{X\!X}_{\bs k+\bs\ell}C^{X\!X}_{-\bs k^\prime}\bigl( \delta_{\bs\ell}\delta_{\bs\ell^\prime} +  \delta_{ 
-        \bs\ell-\bs\ell^\prime}\delta_{\bs k-\bs k^\prime} +  \delta_{\bs\ell-\bs\ell^\prime}\delta_{\bs k+\bs k^\prime +\bs\ell}   \bigr).
+        \bs\ell-\bs\ell^\prime}\delta_{\bs k-\bs k^\prime} +  \delta_{\bs\ell-\bs\ell^\prime}\delta_{\bs k+\bs k^\prime +\bs\ell^\prime}   \bigr).
     \end{align*}
-    The term $\delta_{\bs\ell}\delta_{\bs\ell^\prime}$ is only nonzero  when $\bs\ell=\bs\ell^\prime=0$. Furthermore, by a change of variables, one can see that effect of the terms $\delta_{ \bs\ell-\bs\ell^\prime}\delta_{\bs k-\bs k^\prime}$ and $ \delta_{\bs\ell-\bs\ell^\prime}\delta_{\bs k+\bs k^\prime +\bs \ell}$ in (\ref{wicks term in Cvar}) are identical. Therefore assuming $\bs \ell \neq 0$ and replacing  $E\bigl(X_{\bs k+\bs \ell}X_{-\bs k}X_{-\bs k^\prime-\bs\ell}X_{\bs k^\prime}\bigr)$ in (\ref{wicks term in Cvar}) with $2C^{X\!X}_{\bs k+\bs\ell}C^{X\!X}_{-\bs k^\prime}\delta_{ \bs\ell-\bs\ell^\prime}\delta_{\bs k-\bs k^\prime}$ gives (\ref{appendix, claim raw var}). A similar method to the derivation for (\ref{Aell derivation 11}) can be used to establish (\ref{appendix, claim fast var}). Finally, if one replaces $C^{X\!X}_{\bs k}$ in (\ref{appendix, claim raw var}) with the marginal spectral density $C^{ZZobs}_{\bs k}$ then using (\ref{Aell derivation 11}) one obtains $C_{\bs\ell}^{\text{\rm var }\hat{\phi}} =  2{(2\pi)}^{-d/2} A_{\bs\ell}$.
+    The term $\delta_{\bs\ell}\delta_{\bs\ell^\prime}$ is only nonzero  when $\bs\ell=\bs\ell^\prime=0$. Furthermore, by a change of variables, one can see that effect of the terms $\delta_{ \bs\ell-\bs\ell^\prime}\delta_{\bs k-\bs k^\prime}$ and $ \delta_{\bs\ell-\bs\ell^\prime}\delta_{\bs k+\bs k^\prime +\bs \ell^\prime}$ in (\ref{wicks term in Cvar}) are identical. Therefore assuming $\bs \ell \neq 0$ and replacing  $E\bigl(X_{\bs k+\bs \ell}X_{-\bs k}X_{-\bs k^\prime-\bs\ell^\prime}X_{\bs k^\prime}\bigr)$ in (\ref{wicks term in Cvar}) with $2C^{X\!X}_{\bs k+\bs\ell}C^{X\!X}_{-\bs k^\prime}\delta_{ \bs\ell-\bs\ell^\prime}\delta_{\bs k-\bs k^\prime}$ gives (\ref{appendix, claim raw var}). A similar method to the derivation for (\ref{Aell derivation 11}) can be used to establish (\ref{appendix, claim fast var}). Finally, if one replaces $C^{X\!X}_{\bs k}$ in (\ref{appendix, claim raw var}) with the marginal spectral density $C^{ZZobs}_{\bs k}$ then using (\ref{Aell derivation 11}) one obtains $C_{\bs\ell}^{\text{\rm var }\hat{\phi}} =  2{(2\pi)}^{-d/2} A_{\bs\ell}$.
 
 \end{proof}
 

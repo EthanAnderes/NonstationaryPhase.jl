@@ -81,3 +81,8 @@ This will save `figure1.pdf` to the current directory.
 # Runtime
 
 When running the code be sure to keep in mind that figures 2, 3 and 4 are simulation heavy. Therefore, expect them to take a few hours to run (but no longer than one day on a standard laptop).
+
+# Bug fixes, revisions and pull requests
+
+We plan to experiment with keeping the paper "alive" by continually adding bug fixes and revisions, even after possible publication. We will also consider accepting pull requests for bug-fixes and revisions but only if/when publication occurs to avoid co-author conflicts. Note that pull requests can all be done within the Julia package manager (instructions can be found [here](http://docs.julialang.org/en/release-0.4/manual/packages/#code-changes)). 
+

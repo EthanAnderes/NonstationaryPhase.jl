@@ -13,7 +13,7 @@
 \contentsline {paragraph}{Modeling $C_{\boldsymbol k}$ and $\boldsymbol \eta _{\boldsymbol k}$.}{17}{section*.3}
 \contentsline {paragraph}{Modeling $\boldsymbol \xi _{\boldsymbol k}$.}{17}{section*.4}
 \contentsline {subsection}{\numberline {3.3}Nonstationary phase example $d=1$}{17}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Nonstationary phase example $d=2$}{21}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.4}Nonstationary phase example $d=2$}{20}{subsection.3.4}
 \contentsline {section}{\numberline {4}Discusssion}{22}{section.4}
-\contentsline {section}{References}{23}{section*.6}
+\contentsline {section}{References}{24}{section*.6}
 \contentsline {section}{\numberline {A}Detailed derivations}{25}{appendix.A}

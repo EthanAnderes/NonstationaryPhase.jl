@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  27 FEB 2016 15:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  27 FEB 2016 16:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1687,7 +1687,7 @@ sses with nearly the same val-ues of $[][]\OML/cmm/m/it/10 ; [][]$
 File: figure1.pdf Graphic file (type pdf)
  <use figure1.pdf>
 Package pdftex.def Info: figure1.pdf used on input line 485.
-(pdftex.def)             Requested size: 391.77095pt x 170.71652pt.
+(pdftex.def)             Requested size: 404.83514pt x 176.407pt.
  [11 <./figure1.pdf>] [12] [13] [14] [15] [16]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -2793,43 +2793,35 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 793.
 
-[17] <figure2.pdf, id=517, 623.85574pt x 632.66925pt>
+[17] <figure2.pdf, id=527, 623.85574pt x 678.92207pt>
 File: figure2.pdf Graphic file (type pdf)
  <use figure2.pdf>
-Package pdftex.def Info: figure2.pdf used on input line 803.
-(pdftex.def)             Requested size: 448.90926pt x 455.24408pt.
+Package pdftex.def Info: figure2.pdf used on input line 821.
+(pdftex.def)             Requested size: 392.17447pt x 426.79134pt.
 
-Overfull \hbox (8.0618pt too wide) in paragraph at lines 803--805
- [][] 
- []
-
-<figure3.pdf, id=533, 623.85574pt x 632.66925pt>
+[18] [19 <./figure2.pdf>] <figure3.pdf, id=633, 623.85574pt x 678.92207pt>
 File: figure3.pdf Graphic file (type pdf)
- <use figure3.pdf>
-Package pdftex.def Info: figure3.pdf used on input line 829.
-(pdftex.def)             Requested size: 448.90926pt x 455.24408pt.
 
-Overfull \hbox (8.0618pt too wide) in paragraph at lines 829--830
- [][] 
- []
-
-[18] [19 <./figure2.pdf>] [20 <./figure3.pdf>]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 851.
+<use figure3.pdf>
+Package pdftex.def Info: figure3.pdf used on input line 848.
+(pdftex.def)             Requested size: 392.17447pt x 426.79134pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 851.
+(hyperref)                removing `math shift' on input line 860.
 
-<figure4.pdf, id=738, 602.70366pt x 628.37262pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 860.
+
+[20] [21 <./figure3.pdf>] <figure4.pdf, id=760, 602.70366pt x 628.37262pt>
 File: figure4.pdf Graphic file (type pdf)
- <use figure4.pdf>
-Package pdftex.def Info: figure4.pdf used on input line 869.
-(pdftex.def)             Requested size: 436.65927pt x 455.24408pt.
- [21]
-[22 <./figure4.pdf>] (./paper.bbl [23])
-Overfull \hbox (4.92618pt too wide) in paragraph at lines 948--951
+
+<use figure4.pdf>
+Package pdftex.def Info: figure4.pdf used on input line 905.
+(pdftex.def)             Requested size: 409.37323pt x 426.79134pt.
+ (./paper.bbl [22] [23 <./figure4.pdf>] [24])
+Overfull \hbox (4.92618pt too wide) in paragraph at lines 957--960
 [][]\OT1/ppl/b/n/10 Claim 4. []\OT1/ppl/m/it/10 Let $[]\OT1/cmr/m/n/10 ([]) [] 
 [] \U/msb/m/n/10 R[] \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R[]$ \OT1/ppl/m/it/10 be 
 a vec-tor field and $\OML/cmm/m/it/10 Z\OT1/cmr/m/n/10 ([])$ \OT1/ppl/m/it/10 b
@@ -2838,8 +2830,8 @@ OML/cmm/m/it/10 Z\OT1/cmr/m/n/10 ([])\OMS/cmsy/m/n/10 j[]\OT1/cmr/m/n/10 (\OMS/
 cmsy/m/n/10 ^^A\OT1/cmr/m/n/10 )[] =
  []
 
-[24] [25]
-Overfull \hbox (19.86101pt too wide) in paragraph at lines 1117--1121
+[25]
+Overfull \hbox (19.86101pt too wide) in paragraph at lines 1126--1130
 \OT1/ppl/m/it/10 for all $[] \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = 0$ \OT1/ppl/m/
 it/10 where $\U/rsfs/m/n/10 A[] \OT1/cmr/m/n/10 := [][][][]\OML/cmm/m/it/10 C[]
 =\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 )[]$\OT1/ppl/m/it/10 , $\
@@ -2850,7 +2842,7 @@ T1/cmr/m/n/10 )[]$
  []
 
 [26]
-Overfull \hbox (25.2612pt too wide) in paragraph at lines 1161--1162
+Overfull \hbox (25.2612pt too wide) in paragraph at lines 1170--1171
 [][]\OT1/ppl/b/n/10 Claim 7 \OT1/ppl/m/n/10 (\OT1/ppl/b/n/10 Es-ti-ma-tion bias
 ). []\OT1/ppl/m/it/10 Let $\OMS/cmsy/m/n/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
 ^^^[]\OT1/cmr/m/n/10 )([]\OML/cmm/m/it/10 ; []\OT1/cmr/m/n/10 ) := [][][][]([] 
@@ -2860,12 +2852,12 @@ n/10 R[] \OMS/cmsy/m/n/10 !
  []
 
 [27]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1284.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1293.
  [28]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1284.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1293.
  (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1284.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1284.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1293.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1293.
 
 Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 6FD92133E328A7E0FDFE4A63752B8342;1435.
@@ -2873,17 +2865,17 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1284.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1293.
  )
 (\end occurred when \ifnum on line 91 was incomplete) 
 Here is how much of TeX's memory you used:
  10093 strings out of 493089
  145450 string characters out of 6134842
- 274825 words of memory out of 5000000
+ 270602 words of memory out of 5000000
  13167 multiletter control sequences out of 15000+600000
  41085 words of font info for 119 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,20n,37p,2334b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,20n,37p,2334b,546s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/t
 exmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/
@@ -2919,10 +2911,10 @@ r8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr
 /local/texlive/2015/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/
 texlive/2015/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on paper.pdf (28 pages, 1374809 bytes).
+Output written on paper.pdf (28 pages, 1377864 bytes).
 PDF statistics:
- 1065 PDF objects out of 1200 (max. 8388607)
- 761 compressed objects within 8 object streams
+ 1066 PDF objects out of 1200 (max. 8388607)
+ 762 compressed objects within 8 object streams
  159 named destinations out of 1000 (max. 500000)
  157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
