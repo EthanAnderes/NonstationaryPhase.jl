@@ -42,11 +42,11 @@ Now use the following code to generate Figure 1 (for example) from the paper.
 
 ```julia
 julia> using NonstationaryPhase 
-julia> cd(joinpath(Pkg.dir("NonstationaryPhase"),"figures"))
-julia> include("make_figure_1.jl") 
+julia> figure1_path = joinpath(Pkg.dir("NonstationaryPhase"),"figures/make_figure_1.jl")
+julia> include(figure1_path) 
 ```
 
-This will save `figure1.pdf` to the current directory.
+This will save `figure1.pdf` to the directory that the Julia REPL was launched.
 
 ### Removing the package
 
@@ -72,11 +72,10 @@ Now you should be able to run the following code to generate Figure 1 (for examp
 ```julia
 
 julia> using NonstationaryPhase
-julia> cd("<path to NonstationaryPhase.jl/figures>")
-julia> include("make_figure_1.jl")
+julia> include("<path to NonstationaryPhase.jl>/figures/make_figure_1.jl")
 ```
 
-This will save `figure1.pdf` to the current directory.
+This will save `figure1.pdf` to the directory that the Julia REPL was launched.
 
 # Runtime
 
