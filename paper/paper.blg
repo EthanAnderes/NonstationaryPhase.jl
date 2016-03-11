@@ -4,38 +4,37 @@ The top-level auxiliary file: paper.aux
 The style file: plain.bst
 Database file #1: refs.bib
 Warning--empty journal in giner2014monotonically
-Warning--empty year in hsing2016local
 Warning--there's a number but no series in villani2003topics
 You've used 26 entries,
             2118 wiz_defined-function locations,
-            655 strings with 7748 characters,
-and the built_in function-call counts, 7677 in all, are:
-= -- 765
+            656 strings with 7757 characters,
+and the built_in function-call counts, 7676 in all, are:
+= -- 766
 > -- 295
 < -- 6
 + -- 123
 - -- 92
-* -- 499
-:= -- 1301
+* -- 497
+:= -- 1302
 add.period$ -- 80
 call.type$ -- 26
 change.case$ -- 116
 chr.to.int$ -- 0
-cite$ -- 29
+cite$ -- 28
 duplicate$ -- 318
 empty$ -- 630
 format.name$ -- 92
-if$ -- 1599
+if$ -- 1600
 int.to.chr$ -- 0
 int.to.str$ -- 26
 missing$ -- 32
 newline$ -- 133
 num.names$ -- 52
-pop$ -- 116
+pop$ -- 114
 preamble$ -- 1
 purify$ -- 96
 quote$ -- 0
-skip$ -- 224
+skip$ -- 225
 stack$ -- 0
 substring$ -- 477
 swap$ -- 57
@@ -43,8 +42,8 @@ text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 92
-warning$ -- 3
+warning$ -- 2
 while$ -- 82
 width$ -- 28
-write$ -- 281
-(There were 3 warnings)
+write$ -- 282
+(There were 2 warnings)

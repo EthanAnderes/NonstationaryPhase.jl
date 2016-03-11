@@ -1,10 +1,10 @@
 \documentclass[10pt,noinfoline]{imsart}
+
+%\usepackage[OT1]{fontenc}
 \usepackage{palatino}
-
-
 \usepackage{bm}
 \usepackage{geometry}
-\usepackage{graphics,epsfig,rotate,lscape,graphicx,amsmath,amsthm,amssymb,float,amsfonts,amsbsy,hyperref,delarray,sectsty,amsfonts,amscd,pifont}
+\usepackage{graphics,epsfig,rotate,lscape,graphicx,amsmath,amsthm,amssymb,amsfonts,amsbsy,delarray,sectsty,amscd,pifont}
 \usepackage[mathscr]{euscript}  % gives a different type of mathcal
 \usepackage{multirow}
 \usepackage{soul,float}
@@ -15,27 +15,33 @@
 \usepackage{fancyvrb}
 \usepackage{enumerate}
 \usepackage{subfigure}
-\usepackage{algorithmicx}
-\usepackage{algorithm}
+\usepackage[colorlinks,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[usenames,dvipsnames]{color}
+
+%----- for algorithms
+%\usepackage{algorithmicx}
+%\usepackage{algorithm}
 
 %----- for side captions
- \usepackage{sidecap}
+%\usepackage{sidecap}
 
 %---- for shading regions
-\usepackage{framed}
-\usepackage[usenames,dvipsnames]{color}
-\definecolor{shadecolor}{gray}{0.90}
+%\usepackage{framed}
+%\usepackage[usenames,dvipsnames]{color}
+%\definecolor{shadecolor}{gray}{0.90}
 
 % ---- for bib
-\usepackage{natbib}
-
-
+\usepackage[numbers]{natbib}
+\bibliographystyle{plain}
 
 
 
 \geometry{letterpaper,left=1.2in,right=1.2in,top=1.2in,bottom=1.2in}
-\bibliographystyle{plain}
 
+
+
+%\startlocaldefs
+\definecolor{shadecolor}{gray}{0.90}
 \newtheorem{claim}{Claim}
 \newtheorem{proposition}{Proposition}
 \newtheorem{theorem}{Theorem}
@@ -46,6 +52,10 @@
 \newtheorem{assumption}{Assumption}
 \renewcommand{\labelenumi}{(\roman{enumi})}
 \newcommand{\bs}{\boldsymbol}
+%\endlocaldefs
+
+
+
 
 
 \begin{document}
