@@ -105,8 +105,8 @@ In this paper, we attempt to shed light on a new class of nonstationary random f
 \section{Introduction}
 
 
-Many data sets in time series and spatial statistics show clear signs of nonstationarity \cite{sampson2010constructions,fuglstad2015does}. 
-Despite the prevalence of nonstationary data, theory for understanding and estimating nonstationary random field models is still underdeveloped compared to what is known for stationary random fields. For example, there seems to be no consensus among statisticians as to the relative merits of various nonstationary models and their corresponding estimates found in the current literature (examples of such models can be found in \cite{hsing2016local,sampson1992nonparametric,paciorek2006spatial,fuglstad2015exploring}). While powerful spectral techniques have been developed for deriving absolute continuity or orthogonality of stationary random fields \cite{ibragimov2012gaussian} and for understanding the implications for spatial interpolation \cite{stein2012interpolation}, we know quite little about such topics for nonstationary random fields.  A further complicating matter is that even if the parametric form for the nonstationary data generating mechanism is known, difficulties associated with the inevitable increase in the number of unknown parameters and computational complexity can outweigh the benefits of fitting the true nonstationary model. The situation is far worse for spatial statistics---as compared to time series---where irregularity of spatial observation locations and large boundary effects can make estimation and modeling of nonstationarity more difficult. 
+Many data sets in time series and spatial statistics show clear signs of nonstationarity \cite{sampson2010constructions,fuglstad2015does}.
+Despite the prevalence of nonstationary data, theory for understanding and estimating nonstationary random field models is still underdeveloped compared to what is known for stationary random fields. For example, there seems to be no consensus among statisticians as to the relative merits of various nonstationary models and their corresponding estimates found in the current literature (examples of such models can be found in \cite{hsing2016local,sampson1992nonparametric,paciorek2006spatial,fuglstad2015exploring}). While powerful spectral techniques have been developed for deriving absolute continuity or orthogonality of stationary random fields \cite{ibragimov2012gaussian} and for understanding the implications for spatial interpolation \cite{stein2012interpolation}, we know quite little about such topics for nonstationary random fields.  A further complicating matter is that even if the parametric form for the nonstationary data generating mechanism is known, difficulties associated with the inevitable increase in the number of unknown parameters and computational complexity can outweigh the benefits of fitting the true nonstationary model. The situation is far worse for spatial statistics---as compared to time series---where irregularity of spatial observation locations and large boundary effects can make estimation and modeling of nonstationarity more difficult.
 
 In this paper, we attempt to shed light on a new class of nonstationary random fields which exhibit, what we call, {\em local invariant nonstationarity}. Formally defined in Section \ref{section: local invariant}, a locally invariant nonstationary random field $\{Z(\bs x)\colon \bs x\in \Bbb R^d\}$ has the feature that the covariance function can be written in the following form,
 \begin{align*}
@@ -115,29 +115,36 @@ In this paper, we attempt to shed light on a new class of nonstationary random f
 where $K(\cdot, \cdot)\colon \Bbb R^d\times \Bbb R^d \rightarrow \Bbb R$ and $\bs\theta(\cdot) \colon \Bbb R^d\rightarrow \Bbb R^d$ is a vector field which characterizes the nonstationarity in $Z(\bs x)$. We argue that the locally invariant property has a special interaction with a new  generalized quadratic estimate (derived in Section \ref{Section: the quad est}) which extends an estimate originally developed for gravitational lensing of the Cosmic Microwave Background in Cosmology \cite{hu2001mapping, hu2002mass}. The nature of this interaction not only encourages low estimation bias but also enables accurate (and fast) Frequentist mean square error quantification of the nonstationarity characterized by $\bs \theta(\bs x)$. These quadratic estimates are interesting in their own right, as they detect and estimate nonstationarity by probing correlation among Fourier frequencies, the absence of which is the characterizing feature of weak stationarity (by Bochner's Theorem). Moreover, this generalized quadratic estimate can be computed with a Fourier characterization that runs in $\mathcal O(n\log n)$ time and $\mathcal O(n)$ storage when observing the field on a uniform grid of size $n$ in $\Bbb R^d $. Finally, the work presented here partially addresses two unanswered questions that arise in two important bodies of work on nonstationarity: 1) estimating the spatially varying phase in the models analyzed by Dahlhaus \cite{dahlhaus1997fitting,dahlhaus2000likelihood} and 2) how to extend the quadratic estimate of dark matter from the Cosmic Microwave Background to more general nonstationary random fields.
 
 
-The seminal work of Dahlhaus in the time series literature \cite{dahlhaus1997fitting,dahlhaus2000likelihood}  is  an example of a collection of results that hint at a more general statistical theory of nonstationarity.  Dahlhaus develops asymptotic theory for a particular class of nonstationary random fields modeled by a spatially (or temporally) varying spectral density. These random fields were originally developed for time series \cite{priestley1965evolutionary,priestley1981spectral} and have the form 
+The seminal work of Dahlhaus in the time series literature \cite{dahlhaus1997fitting,dahlhaus2000likelihood}  is  an example of a collection of results that hint at a more general statistical theory of nonstationarity.  Dahlhaus develops asymptotic theory for a particular class of nonstationary random fields modeled by a spatially (or temporally) varying spectral density. These random fields were originally developed for time series \cite{priestley1965evolutionary,priestley1981spectral} and have the form
 \begin{align}
 \label{eq: intro nonstat phase model}
 Z(\bs x)= \int_{\Bbb R^d} e^{i\bs x\cdot \bs k} A(\bs k, \bs x)\sqrt{C_{\bs k}}\frac{dW_{\bs k}}{(2\pi)^{d/2}}
-\end{align} 
-where  $C_{\bs k}$ is a spectral density, $dW_{\bs k}$ is an orthogonal increment random complex measure that satisfies $E|dW_{\bs k}|^2 =  d{\bs k}$ (see \cite{Gikhman_Skorokhod_book_v1} for details on random measures) and $A({\bs k},{\bs x})$ represents a spatial (or temporal) modulation of $\sqrt{C_{\bs k}}$. 
-Dahlhaus proved consistency results for estimating the squared modulus $|A({\bs k},{\bs x})|^2$ when estimation is done  by maximizing a weighted sum of local likelihood functions. Left unanswered, however, is the question of estimating the phase of $A({\bs k},{\bs x})$. In Section \ref{section: NPhase}, we partly resolve this question by showing that a generalized quadratic estimate can be used to estimate a pure phase modulation $A({\bs k},{\bs x})=\exp({iB(\bs k,\bs x)})$ where $B(\bs k,\bs x)$ is a function taking values in $\Bbb R$ and is a separable function of $\bs x$ and $\bs k$. Indeed, this nonstationary phase model has the local invariance property and, as such, can be accurately estimated (under certain conditions on $B(\bs k,\bs x)$) with the generalized quadratic estimate developed here.  
-
+\end{align}
+where  $C_{\bs k}$ is a spectral density, $dW_{\bs k}$ is an orthogonal increment random complex measure that satisfies $E|dW_{\bs k}|^2 =  d{\bs k}$ (see \cite{Gikhman_Skorokhod_book_v1} for details on random measures) and $A({\bs k},{\bs x})$ represents a spatial (or temporal) modulation of $\sqrt{C_{\bs k}}$.
+Dahlhaus proved consistency results for estimating the squared modulus $|A({\bs k},{\bs x})|^2$ when estimation is done  by maximizing a weighted sum of local likelihood functions. Left unanswered, however, is the question of estimating the phase of $A({\bs k},{\bs x})$. In Section \ref{section: NPhase}, we partly resolve this question by showing that a generalized quadratic estimate can be used to estimate a pure phase modulation $A({\bs k},{\bs x})=\exp({iB(\bs k,\bs x)})$ where $B(\bs k,\bs x)$ is a function taking values in $\Bbb R$ and is a separable function of $\bs x$ and $\bs k$. Indeed, this nonstationary phase model has the local invariance property and, as such, can be accurately estimated (under certain conditions on $B(\bs k,\bs x)$) with the generalized quadratic estimate developed here.
+\textcolor{red}{
+Try and add this to the intro... emphasize that the form of the local invariant nonstationarity gives this quasi-stationary form in the Fourier domain which allows FFT methods for empirical cov estimation.
+\begin{align}
+E\big(Z_{\bs k+\bs \ell}Z_{-\bs k}\big)  \approx  \phi_{\bs\ell}\left({\bs\xi_{\bs\ell}\!\cdot\! \bs C^{(1)}_{\bs k} - \bs\xi_{\bs\ell}\!\cdot\! \bs C_{\bs k+\bs \ell}^{(1)}}\right).
+\end{align}
+}
 
 
 Another important development in the statistical theory of nonstationarity comes from recent gravitational lensing studies of the Cosmic Microwave Background (CMB) \citep{das2011detection,van2012measurement, planck2013lensing, Polarbear2014, planck2015lensing}. In Cosmology, gravitational lensing describes the distortion of photon trajectories due to density fluctuations of intervening dark matter. These density fluctuations affect the CMB observations by introducing small nonstationarities in the original isotropic random field model of the CMB. The state-of-the-art estimator of lensing, the quadratic estimator developed by Hu and Okamoto \cite{hu2001mapping, hu2002mass}, has become an incredibly successful tool for probing the nature of dark matter, understanding cosmic structure and constraining cosmological parameters. What is so surprising about this estimate is that is has small bias. This is due to a delicate cancellation of terms in an infinite Taylor expansion of the lensing effect. Unfortunately there has been no clear explanation as to why this cancellation occurs and whether or not it exists in other models of nonstationarity. In this paper, we argue that this cancellation is due to the fact that the lensing-induced nonstationarity is locally invariant. Moreover, the generalized quadratic estimator developed here extends the lensing estimator to more general settings. Indeed, many of techniques we use to derive the generalized quadratic estimator are inspired by---and closely follow---those used by Hu and Okamoto \cite{hu2001mapping, hu2002mass}.  The point of this paper, in contrast to the work of Hu and Okamoto, is to identify the cause of the delicate Taylor series cancellation and extend the benefits of the lensing estimator to a larger class of nonstationary random fields available to general practitioners of spatial statistics.
- 
+
 
 The first part of this paper, given in Section~\ref{section: local invariant}, defines the {\it locally invariant} property and uses it to derive a corresponding generalized quadratic estimate, called the quadratic estimate hereafter,  which has particularly low bias. These new estimates are global rather than local in nature and thus avoid complicating theoretical and practical issues related to bandwidth selection. Moreover, they are unique in that they work in the spectral domain by estimating cross correlation of the Fourier coefficients.  In Section~\ref{section: local invariant} we also derive analytic approximations for estimation variance and second order bias of the quadratic estimate. These approximations, and indeed the estimate itself, are often very accurate and have Fourier representations that yield fast computation.
 
 
-The second part of this paper is given in Section~\ref{section: NPhase}. Here we analyze random fields which are characterized by a spatially varying spectral phase modulation of a stationary field, called nonstationary spectral phase random fields for the remainder of this paper. These models effectively generalize warping models, are locally invariant and, as such, are amenable to quadratic estimates. In Subsection \ref{section: Locally attainable spectral densities} we characterize how the local spectral density of the nonstationary spectral phase model varies as a function of spatial location. The theory of optimal transport and the $L_2$-Wasserstein metric play an important role in this characterization and leads to a natural heuristic for quantifying estimation bias in terms of the Wasserstein geodesic cut locus (see Claim \ref{claim: cut locus}, Section \ref{section: modeling xi, C and eta} and Figure \ref{Figure 2 zx and var, extra bias}). We also present a set of simulations, based on nonstationary spectral phase random fields, which demonstrate the accuracy of both the quadratic estimate and our approximation to the mean squared sampling properties of the quadratic estimate. 
+The second part of this paper is given in Section~\ref{section: NPhase}. Here we analyze random fields which are characterized by a spatially varying spectral phase modulation of a stationary field, called nonstationary spectral phase random fields for the remainder of this paper. These models effectively generalize warping models, are locally invariant and, as such, are amenable to quadratic estimates. In Subsection \ref{section: Locally attainable spectral densities} we characterize how the local spectral density of the nonstationary spectral phase model varies as a function of spatial location. The theory of optimal transport and the $L_2$-Wasserstein metric play an important role in this characterization and leads to a natural heuristic for quantifying estimation bias in terms of the Wasserstein geodesic cut locus (see Claim \ref{claim: cut locus}, Section \ref{section: modeling xi, C and eta} and Figure \ref{Figure 2 zx and var, extra bias}). We also present a set of simulations, based on nonstationary spectral phase random fields, which demonstrate the accuracy of both the quadratic estimate and our approximation to the mean squared sampling properties of the quadratic estimate.
 
 
 
 
 
 \subsection{Notation}
+
+\textcolor{red}{Be explicit that all function defined on $\Bbb R^d$ are periodic and the integrals over real space are restricted to one periodic region etc...}
 
 For readability it will be advantageous to briefly summarize the notational conventions used throughout this paper, some of which are borrowed from Cosmology and are somewhat nonstandard in the statistics literature.
 Variables taking values in $\Bbb R^d$ or $\Bbb R^{d\times d}$ will generally be written with bold font such as $\bs x, \bs y, \bs k,\bs \ell\in \Bbb R^d$ or $\bs A,\bs M \in \Bbb R^{d\times d}$. Indexing into vector or matrix coordinates are written with subscripts so that $\bs x_i\in\Bbb R$ denotes the $i^{\text{th}}$ coordinate of $\bs x\in\Bbb R^d$, for example. When $\bs z, \bs w\in\Bbb C^d$ we let the (non-Hermitian) dot product  be denoted by $\bs z \cdot \bs w = \bs z_1 \bs w_1 + \ldots + \bs z_d \bs w_d$.
@@ -221,7 +228,9 @@ Assumptions \ref{Assumption 4}, \ref{Assumption 2} and \ref{Assumption 3} are ge
 A generalized quadratic estimate of $\phi(\bs x)$
 }\label{Section: the quad est}
 
-Based on assumptions \ref{Assumption 4}, \ref{Assumption 2} and \ref{Assumption 3} given in the previous section, the first step for deriving a generalized quadratic estimate of $\phi(\bs x)$ is to linearly approximate  $C^{\bs \theta}(\bs x,\bs y)$, with a Taylor expansion in $\bs \theta(\bs x) - \bs \theta(\bs y)$ as follows 
+\textcolor{red}{Consider giving the estimate up front, along with the FFT represention, then explain where it comes from.}
+
+Based on assumptions \ref{Assumption 4}, \ref{Assumption 2} and \ref{Assumption 3} given in the previous section, the first step for deriving a generalized quadratic estimate of $\phi(\bs x)$ is to linearly approximate  $C^{\bs \theta}(\bs x,\bs y)$, with a Taylor expansion in $\bs \theta(\bs x) - \bs \theta(\bs y)$ as follows
 \begin{align}
 \label{first order term, intro}
 C^{\bs \theta}(\bs x,\bs y) = C^{(0)}(\bs x-\bs y)
@@ -229,6 +238,7 @@ C^{\bs \theta}(\bs x,\bs y) = C^{(0)}(\bs x-\bs y)
         + \mathcal O({\phi}^2)+ \mathcal O(\phi^3)+\cdots.
 \end{align}
 where $C^{(0)}\colon \Bbb R^d \rightarrow \Bbb R$ and $\bs C^{(1)}\colon \Bbb R^d \rightarrow \Bbb R^d$ satisfies $\bs C^{(1)}(-\bs x) = -\bs C^{(1)}(\bs x)$.
+\textcolor{red}{Consider giving the explicit derivative form of $\bs C^{(1)}(\bs x-\bs y)$.}
 Now, truncating (\ref{first order term, intro}) to first order and applying Claim \ref{claim: first order expansion} of Appendix \ref{section: Detailed Proofs} gives the following linear approximation of the cross frequency covariance in the Fourier transform of $Z(\bs x)$
 \begin{align}
 \label{eq: first order cov intro}
@@ -246,7 +256,7 @@ Using this translation, Claim \ref{appendix, claim: quad est derivations} of App
 \end{align}
 In the above formula, $A_{\bs \ell}$ is a normalizing constant (see Claim \ref{appendix, claim: quad est derivations} for an exact expression),  $C^{ZZobs}_{\bs k}$ is defined to be $C^{ZZm}_{\bs k} + C^{N\!N}_{\bs k}$ where $C^{ZZm}_{\bs k}$ is the spectral density of $Z(\bs x)$ marginalized over the prior for $\phi(\bs x)$ given in Assumption \ref{Assumption 3}. Notice that the prior only serves to optimize the weights in $\hat\phi_{\bs \ell}$. Indeed, one can easily avoid specifying $C_{\bs k}^{\phi\phi}$ by instead defining $C^{ZZm}_{\bs k}$ to be ${(2\pi)}^{d/2}C^{(0)}_{\bs k}$ where $C^{(0)}_{\bs k}$ denotes the Fourier transform of $C^{(0)}(\bs x)$ from (\ref{first order term, intro}).
 
-The normalizing constant $A_{\bs \ell}$ is completely determined by the weights used on the terms $Z^{obs}_{\bs k+\bs \ell}Z^{obs}_{-\bs k}$ through the requirement that $\hat\phi_{\bs \ell}$ be unbiased up to first order in $\phi$, in particular, requiring that $E(\hat\phi_{\bs \ell}) = \phi_{\bs \ell} + \mathcal O(\phi^2)+ \mathcal O(\phi^3)+\cdots$ or equivalently that $\frac{1}{\phi_{\bs \ell}}E(\hat\phi_{\bs \ell}) = 1 + \mathcal O(\phi)+ \mathcal O(\phi^2)+\cdots$. 
+The normalizing constant $A_{\bs \ell}$ is completely determined by the weights used on the terms $Z^{obs}_{\bs k+\bs \ell}Z^{obs}_{-\bs k}$ through the requirement that $\hat\phi_{\bs \ell}$ be unbiased up to first order in $\phi$, in particular, requiring that $E(\hat\phi_{\bs \ell}) = \phi_{\bs \ell} + \mathcal O(\phi^2)+ \mathcal O(\phi^3)+\cdots$ or equivalently that $\frac{1}{\phi_{\bs \ell}}E(\hat\phi_{\bs \ell}) = 1 + \mathcal O(\phi)+ \mathcal O(\phi^2)+\cdots$.
 This results in the following an analytic characterization for $A_{\bs \ell}$
 \begin{equation}
 \label{in text eq of the normalizing constant}
@@ -262,7 +272,7 @@ One of the advantages of the estimator $\hat\phi_{\bs \ell}$, defined in (\ref{e
 \begin{align}
     \label{fast form of the qe in body of paper}
     \hat\phi_{\bs \ell}
-    &=   A_{\bs \ell}\sum_{p=1}^d \bs\xi^*_{p,\bs \ell} \int 
+    &=   A_{\bs \ell}\sum_{p=1}^d \bs\xi^*_{p,\bs \ell} \int
         e^{-i\bs x\cdot\bs \ell} \mathscr A(\bs x)\mathscr B_{p}(\bs x)\frac{d\bs x}{{(2\pi)}^{d/2}}
 \end{align}
 where $\mathscr A_{\bs \ell}:= Z^{obs}_{\bs \ell}/ C^{ZZobs}_{\bs \ell}$ and $\mathscr B_{p,\bs \ell} := i 2  \, \textrm{imag}(\bs C^{(1)}_{p,\bs \ell}) Z^{obs}_{\bs\ell} / C^{ZZobs}_{\bs\ell}$ which  can be computed in $\mathcal O(n\log(n))$ time (when observing $Z^{obs}$ on a grid of size $n$) by a sequence of fast Fourier transforms, inverse fast Fourier transforms and pointwise operations.
@@ -373,7 +383,7 @@ C^{\text{var }\hat\phi}_{\bs \ell} = 2{(2\pi)}^{-d/2} A_{\bs \ell}.
 
 
 
-It should be noted that when marginalizing  over the prior given in Assumption \ref{Assumption 3} the process $Z(\bs x)$ becomes stationary but non-Gaussian. On the other hand, when conditioning on $\phi$, the process $Z(\bs x)$ is Gaussian but nonstationary. Therefore, when using option 2 in equation (\ref{Cxx def}) to model $C^{\text{var }\hat\phi}_{\bs \ell}$, the approximation in (\ref{var aprox wick form}) includes a Gaussian approximation to $X(\bs x)$. Finally, we mention that Claim \ref{thm: quantify the var fluctuations of hat phi} also gives a Fourier based characterization  for fast computation of $C^{\text{var }\hat\phi}_{\bs \ell}$. 
+It should be noted that when marginalizing  over the prior given in Assumption \ref{Assumption 3} the process $Z(\bs x)$ becomes stationary but non-Gaussian. On the other hand, when conditioning on $\phi$, the process $Z(\bs x)$ is Gaussian but nonstationary. Therefore, when using option 2 in equation (\ref{Cxx def}) to model $C^{\text{var }\hat\phi}_{\bs \ell}$, the approximation in (\ref{var aprox wick form}) includes a Gaussian approximation to $X(\bs x)$. Finally, we mention that Claim \ref{thm: quantify the var fluctuations of hat phi} also gives a Fourier based characterization  for fast computation of $C^{\text{var }\hat\phi}_{\bs \ell}$.
 
 
 
@@ -391,7 +401,7 @@ The higher order terms $\mathcal O(\phi^n)$ in  (\ref{first order term, intro}) 
 \[
 E(\hat\phi_{\bs \ell}|\phi) -\phi_{\bs \ell} =   \hat\phi_{\bs\ell}\bigl \{ {\mathcal O(\phi^2)}_{\bs k +\bs \ell, -\bs k} \bigr \} + \hat\phi_{\bs\ell}\bigl \{ {\mathcal O(\phi^3)}_{\bs k +\bs \ell, -\bs k} \bigr \} +\cdots
 \]
-where $\mathcal O(\phi^n)_{\bs k+\bs \ell, -\bs k}$ is defined to be Fourier transform of $\mathcal O(\phi^n)(\bs x,\bs y)$, defined in (\ref{first order term, intro}), and evaluated at frequencies $\bs k+\bs \ell$ and  $-\bs k$, respectively. For the local invariant models we consider here, the second order bias term has the following form 
+where $\mathcal O(\phi^n)_{\bs k+\bs \ell, -\bs k}$ is defined to be Fourier transform of $\mathcal O(\phi^n)(\bs x,\bs y)$, defined in (\ref{first order term, intro}), and evaluated at frequencies $\bs k+\bs \ell$ and  $-\bs k$, respectively. For the local invariant models we consider here, the second order bias term has the following form
 \begin{equation}\label{eq: 2nd order bias (x,y)}
 \mathcal O(\phi^2)(\bs x,\bs y) = (\bs\theta(\bs x) - \bs\theta(\bs y))^T \bs C^{(2)}(\bs x-\bs y) (\bs\theta(\bs x) - \bs\theta(\bs y))
 \end{equation}
@@ -400,7 +410,7 @@ This expression makes it clear how local invariant nonstationarity encourages lo
 At these small scales the smoothness of $\bs \theta(\bs x)$ and the function $\bs C^{(2)}(\bs x-\bs y)$ will attenuate the influence of $\mathcal O(\phi^2)$  when propagated through $\hat\phi_{\bs \ell}$.
 
 
-For remainder of this section we analyze how the second order term (\ref{eq: 2nd order bias (x,y)}) propagates to second order bias in the quadratic estimate, denoted $\hat\phi_{\bs \ell}^{\text{bias}}$. 
+For remainder of this section we analyze how the second order term (\ref{eq: 2nd order bias (x,y)}) propagates to second order bias in the quadratic estimate, denoted $\hat\phi_{\bs \ell}^{\text{bias}}$.
 Claim \ref{thm: bias in the appendix} in the Appendix gives the following expression for $\hat\phi_{\bs \ell}^{\text{bias}}$
 \begin{align}
     \label{2nd order bias in local invariant section II}
@@ -410,7 +420,7 @@ Moreover the marginal expected value of this bias term satisfies $E\big( \hat\ph
 when $\bs \ell \neq 0$. Therefore, to quantify the marginal magnitude of the second order bias one must use the variance of (\ref{2nd order bias in local invariant section II}). This is done in  Claim \ref{thm: bias in the appendix} which establishes that when $\bs\theta(\bs x)$ is a mean zero Gaussian random field with spectral density matrix $C_{\bs \ell}^{\bs \theta\bs\theta}$ the corresponding spectral density for $\hat\phi_{\bs \ell}^{\text{bias}}$, denoted $C_{\bs \ell}^{\text{bias }\hat\phi}$, satisfies
 \begin{align}
 	C_{\bs \ell}^{\text{bias }\hat\phi}
-	&= 4\!\! \sum_{p,q,p^\prime\!,q^\prime\!=1}^d \int 
+	&= 4\!\! \sum_{p,q,p^\prime\!,q^\prime\!=1}^d \int
 	\Big(
 	C^{\bs \theta\bs \theta}_{p,p^\prime,\bs \omega}C^{\bs \theta\bs \theta}_{q,q^\prime,\bs \ell - \bs \omega}
 	+ C^{\bs \theta\bs \theta}_{p,q^\prime,\bs \omega}C^{\bs \theta\bs \theta}_{q,p^\prime,\bs \ell - \bs \omega}
@@ -422,17 +432,17 @@ when $\bs \ell \neq 0$. Therefore, to quantify the marginal magnitude of the sec
 	\label{eq in intro on spec den of O(phi2)}
 \end{align}
 when $\bs \ell \neq \bs 0$.
-Notice that $\hat\phi_{\bs \ell}^{\text{bias}}$ equals the exact, map level, bias contribution from the second order term $\mathcal O(\phi^2)$. Therefore the statement that $C_{\bs \ell}^{\text{bias }\hat\phi}$ is an approximation  to the second order bias only refers to the fact that it marginally quantifies the impact of the second order term $\mathcal O(\phi^2)$ rather than the all order bias $\mathcal O(\phi^2) + \mathcal O(\phi^3) + \cdots$. 
+Notice that $\hat\phi_{\bs \ell}^{\text{bias}}$ equals the exact, map level, bias contribution from the second order term $\mathcal O(\phi^2)$. Therefore the statement that $C_{\bs \ell}^{\text{bias }\hat\phi}$ is an approximation  to the second order bias only refers to the fact that it marginally quantifies the impact of the second order term $\mathcal O(\phi^2)$ rather than the all order bias $\mathcal O(\phi^2) + \mathcal O(\phi^3) + \cdots$.
 
-In contrast to  $C^{\text{var\,} \hat\phi}_{\bs \ell}$, which can be computed quickly using forward and inverse Fourier transformations, the calculation of $C^{\text{bias\,} \hat\phi}_{\bs \ell}$ appears to require explicit looping over $\bs\omega$ for each $\bs \ell$. This is problematic when $Z(\bs x)$ is observed on a high dimensional dense grid. However, there is an approximation to $C^{\text{bias\,} \hat\phi}_{\bs \ell}$ which is both fast and yields excellent numerical accuracy for frequencies $\bs \ell$ with small to moderate magnitude. The approximation is derived with a second order Taylor approximation $\bs C^{(2)}_{p,q,\bs k + \bs\omega}\approx \bs C^{(2)}_{p,q,\bs k} +  \nabla\bs C^{(2)}_{p,q,\bs k}\bs \omega +  \frac{1}{2}\bs \omega^T \nabla^2\bs C^{(2)}_{p,q,\bs k} \bs \omega$ so that 
+In contrast to  $C^{\text{var\,} \hat\phi}_{\bs \ell}$, which can be computed quickly using forward and inverse Fourier transformations, the calculation of $C^{\text{bias\,} \hat\phi}_{\bs \ell}$ appears to require explicit looping over $\bs\omega$ for each $\bs \ell$. This is problematic when $Z(\bs x)$ is observed on a high dimensional dense grid. However, there is an approximation to $C^{\text{bias\,} \hat\phi}_{\bs \ell}$ which is both fast and yields excellent numerical accuracy for frequencies $\bs \ell$ with small to moderate magnitude. The approximation is derived with a second order Taylor approximation $\bs C^{(2)}_{p,q,\bs k + \bs\omega}\approx \bs C^{(2)}_{p,q,\bs k} +  \nabla\bs C^{(2)}_{p,q,\bs k}\bs \omega +  \frac{1}{2}\bs \omega^T \nabla^2\bs C^{(2)}_{p,q,\bs k} \bs \omega$ so that
 \begin{align}
  \hat\phi_{\bs \ell}\big\{{\bs C^{(2)}_{p,q,\bs k}}- {\bs C^{(2)}_{p,q,\bs k + \bs\omega}}\big\}
- \approx 
+ \approx
  -  \hat\phi_{\bs \ell}\big\{ \nabla\bs C^{(2)}_{p,q,\bs k} \big\} \,\bs \omega
  - \textstyle\frac{1}{2}\bs \omega^T\, \hat\phi_{\bs \ell}\big\{ \nabla^2\bs C^{(2)}_{p,q,\bs k} \big\}\,\bs \omega.
  \label{eq: fast approximation to Cpbias}
 \end{align}
-The advantage being that $ \hat\phi_{\bs \ell}\big\{ \nabla\bs C^{(2)}_{p,q,\bs k} \big\}$ and $\hat\phi_{\bs \ell}\big\{ \nabla^2\bs C^{(2)}_{p,q,\bs k} \big\}$ only need to be computed once and can therefore be factored out of the integral (\ref{eq in intro on spec den of O(phi2)}). The factored integral is then recognized as a convolution which can be quickly computed using forward and inverse Fourier transforms. 
+The advantage being that $ \hat\phi_{\bs \ell}\big\{ \nabla\bs C^{(2)}_{p,q,\bs k} \big\}$ and $\hat\phi_{\bs \ell}\big\{ \nabla^2\bs C^{(2)}_{p,q,\bs k} \big\}$ only need to be computed once and can therefore be factored out of the integral (\ref{eq in intro on spec den of O(phi2)}). The factored integral is then recognized as a convolution which can be quickly computed using forward and inverse Fourier transforms.
 The quality of the approximation to  $C^{\text{bias\,} \hat\phi}_{\bs \ell}$ is illustrated in Section \ref{section: nonstat example d=1} where simulations are done on a sufficiently coarse grid to allow a comparison of both $C^{\text{bias\,} \hat\phi}_{\bs \ell}$ and the fast approximation. In Section \ref{section: nonstat example d=2}, however, simulations are done on a two dimensional grid which is dense enough to necessitate the fast approximation to $C^{\text{bias\,} \hat\phi}_{\bs \ell}$.
 
 
@@ -448,7 +458,7 @@ The quality of the approximation to  $C^{\text{bias\,} \hat\phi}_{\bs \ell}$ is 
 
 In this section we give an example of two stochastic processes with nearly the same values of $\bs C_{\bs k}^{(0)}, \bs C_{\bs k}^{(1)}$ and $\bs C_{\bs k}^{(2)}$, discussed above, but where one process is not locally invariant.  A quadratic estimate of nonstationarity is derived for both models and the resulting bias of each is compared. The main conclusion is that a small deviation from the locally invariant structure results in a bias that is orders of magnitude larger than what is found in the local invariant model.
 
-Consider the following two periodic nonstationary stochastic processes\footnote{We follow our notational convention and use non-bold symbols in this section to indicate scalar quantities for $d=1$. Moreover, due to the periodic nature of $Z(t)$ and $\tilde Z(t)$, our notation dictates 
+Consider the following two periodic nonstationary stochastic processes\footnote{We follow our notational convention and use non-bold symbols in this section to indicate scalar quantities for $d=1$. Moreover, due to the periodic nature of $Z(t)$ and $\tilde Z(t)$, our notation dictates
 $\int \equiv \sum_{k\in \Bbb Z}$ in (\ref{eq: def Z(t) and tildeZ(t)}).}
  on $[-\pi,\pi)$
 \begin{align}
@@ -518,13 +528,13 @@ Figure \ref{Figure 1} also shows that for small $\ell$, the signal to noise rati
 
 
 In this section we specialize the results of the previous section to random fields which have a particular form: nonstationary spectral phase random fields. These models are locally invariant (c.f. Definition \ref{Definition 1}) and can be viewed as generalized warping models which are amenable to quadratic estimates. The general formulas for $\hat\phi_{\bs \ell}$, $C_{\bs \ell}^{\text{var }\hat\phi}$ and $C_{\bs \ell}^{\text{bias }\hat\phi}$, given in the previous section, are derived for the nonstationary spectral phase model to yield exact formulas. In subsection \ref{section: Locally attainable spectral densities} we present a characterization of the local spectral densities for nonstationary spectral phase models using the theory of optimal transport and the $L_2$-Wasserstein metric. In subsection \ref{section: modeling xi, C and eta} we present informal guidance for specifying some of the modeling parameters of the nonstationary models presented here.
-Finally, in sections \ref{section: nonstat example d=1} and \ref{section: nonstat example d=2}, we 
-present a set of simulations which demonstrate the quadratic estimate and the accuracy of our approximation to the mean squared sampling properties. 
+Finally, in sections \ref{section: nonstat example d=1} and \ref{section: nonstat example d=2}, we
+present a set of simulations which demonstrate the quadratic estimate and the accuracy of our approximation to the mean squared sampling properties.
 
 
 
 \begin{definition}\label{def: nonstate phase}
-A real random field $Z(\bs x)$ on $\Bbb R^d$ is said to be a \textbf{nonstationary spectral phase random field} if there exists  functions $C_{\bs k}:\Bbb R^d \rightarrow \Bbb R^+$, $\bs \theta(\bs x):\Bbb R^d \rightarrow \Bbb R^d$ and  $\bs\eta_{\bs k}:\Bbb R^d \rightarrow \Bbb R^d$ such that $C_{\bs k}$ has finite $L_1(\Bbb R^d)$ norm, $C_{-\bs k} = C_{\bs k}$,  $\bs \eta_{-\bs k} =-\bs\eta_{\bs k}$ and 
+A real random field $Z(\bs x)$ on $\Bbb R^d$ is said to be a \textbf{nonstationary spectral phase random field} if there exists  functions $C_{\bs k}:\Bbb R^d \rightarrow \Bbb R^+$, $\bs \theta(\bs x):\Bbb R^d \rightarrow \Bbb R^d$ and  $\bs\eta_{\bs k}:\Bbb R^d \rightarrow \Bbb R^d$ such that $C_{\bs k}$ has finite $L_1(\Bbb R^d)$ norm, $C_{-\bs k} = C_{\bs k}$,  $\bs \eta_{-\bs k} =-\bs\eta_{\bs k}$ and
 \begin{align}
 \label{eq: nonstate phase}
 Z(\bs x)= \int \exp\big(i\bs x\cdot \bs k\big)\exp\big(i\bs\theta(\bs x) \cdot \bs\eta_{\bs k}\big) \,\sqrt{C_{\bs k}} \frac{dW_{\bs k}}{(2\pi)^{d/2}}
@@ -532,7 +542,7 @@ Z(\bs x)= \int \exp\big(i\bs x\cdot \bs k\big)\exp\big(i\bs\theta(\bs x) \cdot \
 where $dW_{\bs k}$  denotes a complex Gaussian white noise random measure on $\Bbb R^d$ which satisfies $E|dW_{\bs k}|^2 = d\bs k$.
 \end{definition}
 
-  
+
 The covariance function $C^{\bs \theta}(\bs x,\bs y):=\text{cov}(Z(\bs x), Z(\bs y))$ for the random field defined by (\ref{eq: nonstate phase}), conditioning on $\bs \eta_{\bs k}$ and $\bs \theta(\bs x)$, can be computed as follows
 \begin{align}
 \label{eq: NPhase cov model}
@@ -555,7 +565,7 @@ C^{ZZobs}_{\bs k} = {(2\pi)}^{d/2}C^{Zm}_{\bs k} + C^{NN}_{\bs k} \label{eq: CZZ
 \end{align}
 where $C^{Zm}_{\bs k}$ is the Fourier transform of the marginal auto covariance of $Z(\bs x)$ and is given by
 \begin{align*}
-C^{Zm}(\bs x-\bs y)= 
+C^{Zm}(\bs x-\bs y)=
 \int  \exp(i(\bs x-\bs y)\cdot \bs k)\exp\!\big(\!-{\textstyle\frac{1}{2}}\bs\eta^T_{\bs k} \bs\Sigma(\bs x-\bs y) \bs \eta_{\bs k}\big)\, C_{\bs k}\frac{d\bs k}{(2\pi)^d}.
 \end{align*}
 Now the expressions for $C^{ZZobs}_{\bs k}$, $\bs C_{\bs k}^{(1)}$ and $\bs C_{\bs k}^{(2)}$ given in (\ref{eq: C(1), C(2) and C(3) for nonstationary phase})  and (\ref{eq: CZZobs for nonstationary phase})
@@ -591,7 +601,7 @@ completely define the quadratic estimate $\hat\phi_{\bs \ell}$, the second order
 \label{section: Locally attainable spectral densities}
 
 
-In this section we investigate the set of possible local spectral densities, for different values of the nonstationary function $\bs \theta(\bs x)$, under the nonstationary spectral phase random field model of $Z(\bs x)$. Since the nonstationarity in $Z(\bs x)$ is exclusively due to local variation of a spectral phase, there is significant restriction on how local spectral densities can vary with $\bs x$. For example, one can easily see that all the local spectral densities of $Z(\bs x)$ must have the same integral (so that the pointwise variance of $Z(\bs x)$ is a constant function of $\bs x$). In what follows we characterize further restrictions and, in doing so, identify a second source of estimation bias due to the curved nature of the local spectral models. The theory of optimal transport and the $L_2$-Wasserstein metric play an important role in the characterization of local stationary models. We refer the reader to the excellent book \cite{villani2003topics} for an overview of the subject. 
+In this section we investigate the set of possible local spectral densities, for different values of the nonstationary function $\bs \theta(\bs x)$, under the nonstationary spectral phase random field model of $Z(\bs x)$. Since the nonstationarity in $Z(\bs x)$ is exclusively due to local variation of a spectral phase, there is significant restriction on how local spectral densities can vary with $\bs x$. For example, one can easily see that all the local spectral densities of $Z(\bs x)$ must have the same integral (so that the pointwise variance of $Z(\bs x)$ is a constant function of $\bs x$). In what follows we characterize further restrictions and, in doing so, identify a second source of estimation bias due to the curved nature of the local spectral models. The theory of optimal transport and the $L_2$-Wasserstein metric play an important role in the characterization of local stationary models. We refer the reader to the excellent book \cite{villani2003topics} for an overview of the subject.
 
 
 
@@ -600,11 +610,11 @@ The local invariance property of nonstationary spectral phase models implies tha
 C^{\bs \theta}(\bs x,\bs y)
 &=\int  \exp\!\big(i(\bs x-\bs y)\!\cdot\! (\bs k + \bs A^T\bs\eta_{\bs k})\big) \, C_{\bs k}\frac{d\bs k}{(2\pi)^d}
 =\int\exp\!\big(i(\bs x-\bs y)\!\cdot\! \bs\omega\big)  \frac{d\lambda(\bs \omega)}{(2\pi)^d} \label{eq: local spectral density for nonstationary phase}
-\end{align} 
-where $\lambda$ is the spectral measure obtained by a change of variables $\bs\omega = \bs k + \bs A^T\bs\eta_{\bs k}$ (under appropriate measurability assumptions on $\bs \eta_{\bs k}$) Therefore when $\bs\theta(\bs x) = \bs A \bs x + \bs b$ in a local neighborhood about $\bs x$ the process $Z(\bs x)$ becomes locally stationary with local spectral measure given by $\lambda$. 
+\end{align}
+where $\lambda$ is the spectral measure obtained by a change of variables $\bs\omega = \bs k + \bs A^T\bs\eta_{\bs k}$ (under appropriate measurability assumptions on $\bs \eta_{\bs k}$) Therefore when $\bs\theta(\bs x) = \bs A \bs x + \bs b$ in a local neighborhood about $\bs x$ the process $Z(\bs x)$ becomes locally stationary with local spectral measure given by $\lambda$.
 
 
-The optimal transport literature uses the notation $\bs v \,\sharp\, \lambda(B) := \lambda(\bs v^{-1}(B))$ to denote the push forward of a measure $\lambda$ on $\Bbb R^d$ under a measurable transformation $\bs v_{\bs k}:\Bbb R^d\rightarrow \Bbb R^d$. For our needs it will be useful to extend this definition to spectral measures $\lambda$ which have a spectral density $C_{\bs k}$  with respect to Lebesgue measure on $\Bbb R^d$.  In particular we let $\bs v_{\bs k}\,\sharp\, C_{\bs k}$ denote the push forward of the measure  $C_{\bs k}d\bs k$ under the transformation $\bs v_{\bs k}$. This notation allows one to easily express the spectral measure $\lambda$  in (\ref{eq: local spectral density for nonstationary phase}) as 
+The optimal transport literature uses the notation $\bs v \,\sharp\, \lambda(B) := \lambda(\bs v^{-1}(B))$ to denote the push forward of a measure $\lambda$ on $\Bbb R^d$ under a measurable transformation $\bs v_{\bs k}:\Bbb R^d\rightarrow \Bbb R^d$. For our needs it will be useful to extend this definition to spectral measures $\lambda$ which have a spectral density $C_{\bs k}$  with respect to Lebesgue measure on $\Bbb R^d$.  In particular we let $\bs v_{\bs k}\,\sharp\, C_{\bs k}$ denote the push forward of the measure  $C_{\bs k}d\bs k$ under the transformation $\bs v_{\bs k}$. This notation allows one to easily express the spectral measure $\lambda$  in (\ref{eq: local spectral density for nonstationary phase}) as
 \[
 \lambda= (\bs k+ \bs A^T \bs\eta_{\bs k})\,\sharp\, C_{\bs k}
 \]
@@ -618,7 +628,7 @@ and, in doing so, creates a succinct notation for the collection of locally atta
 Suppose $Z(\bs x)$ is a nonstationary spectral phase random field on $\Bbb R^d$ satisfying Definition \ref{def: nonstate phase}. \textit{\textbf{The family of locally attainable spectral measures for $Z(\bs x)$}} is defined to be the collection of measures
 \[
 \mathscr C^{C,\bs\eta}:= \big\{ (\bs k+ \bs A^T \bs\eta_{\bs k})\,\sharp\, C_{\bs k}: \bs A \in \Bbb R^{d\times d}\big\}
-\] 
+\]
 so that for each $\lambda \in \mathscr C^{C,\bs\eta}$ there exists a matrix $\bs A$ such that when $\bs \theta(\bs x) = \bs A\bs x$ the random field $Z(\bs x)$ becomes stationary with spectral measure $\lambda$.
 \end{definition}
 
@@ -634,13 +644,13 @@ Z(\bs x)$ which has both $C_{\bs k}$ and $\tilde C_{\bs k}$ as locally attainabl
 %---------------------------------------------------------
 \begin{claim}[\textbf{Any pair of spectral densities with the same integral are attainable}]
 \label{claim any two spec are attainable}
-Let $d\geq 1$ be an integer, $t_0 > 0$ be a real number and $C_{\bs k}$, $\tilde C_{\bs k}$ be two spectral densities on $\Bbb R^d$ with finite second moments such that $\sigma^2 = \int_{\Bbb R^d}  C_{\bs k}d\bs k = \int_{\Bbb R^d} \tilde C_{\bs k}d\bs k$. Then there exists a vector field $\bs \eta_{\bs k}\colon \Bbb R^d \rightarrow \Bbb R^d$ which is $L_2(\Bbb R^d)$ integrable with respect to $C_{\bs k}d\bs k$ and  generates a one dimensional curve of spectral measures  $\{\lambda^{(t)}: t\in [0,t_0]\}$, defined by 
+Let $d\geq 1$ be an integer, $t_0 > 0$ be a real number and $C_{\bs k}$, $\tilde C_{\bs k}$ be two spectral densities on $\Bbb R^d$ with finite second moments such that $\sigma^2 = \int_{\Bbb R^d}  C_{\bs k}d\bs k = \int_{\Bbb R^d} \tilde C_{\bs k}d\bs k$. Then there exists a vector field $\bs \eta_{\bs k}\colon \Bbb R^d \rightarrow \Bbb R^d$ which is $L_2(\Bbb R^d)$ integrable with respect to $C_{\bs k}d\bs k$ and  generates a one dimensional curve of spectral measures  $\{\lambda^{(t)}: t\in [0,t_0]\}$, defined by
 \begin{align}
 \lambda^{(t)} := (\bs k + t\bs \eta_{\bs k})\,\sharp\, C_{\bs k}
 \end{align}
 with endpoints $\lambda^{(0)}=C_{\bs k}d\bs k$ and $\lambda^{(t_0)}=\tilde C_{\bs k}d\bs k$,
 such that  $\{\lambda^{(t)}:t\in[0,t_0] \}\subset \mathscr C^{C,\bs\eta}$. In particular there exists a nonstationary spectral phase random field model for which  $C_{\bs k}$ and $\tilde C_{\bs k}$ are both locally attainable.
-Moreover,  $\{\lambda^{(t)}: t\in [0,t_0]\}$ is a $L_2$-Wasserstein geodesic path within the class of absolutely continuous spectral measures (with total mass $\sigma^2$ and finite second moments) and each measure $\lambda^{(t)}$ has a density $C^{(t)}_{\bs k}$ with respect to Lebesgue measure on $\Bbb R^d$ which (weakly) satisfies 
+Moreover,  $\{\lambda^{(t)}: t\in [0,t_0]\}$ is a $L_2$-Wasserstein geodesic path within the class of absolutely continuous spectral measures (with total mass $\sigma^2$ and finite second moments) and each measure $\lambda^{(t)}$ has a density $C^{(t)}_{\bs k}$ with respect to Lebesgue measure on $\Bbb R^d$ which (weakly) satisfies
 \begin{align}
 \label{div flow for geo}
 \partial_t C^{(t)}_{\bs k} +\text{\rm div}(\bs \eta^{(t)}_{\bs k}C^{(t)}_{\bs k}) = 0
@@ -654,12 +664,12 @@ for all $t\in [0,t_0]$ where $\bs \eta^{(t)}_{\bs k}:=\bs \eta_{T_t^{-1}(\bs k)}
 By standard optimal transport theory (see \cite{villani2003topics} for example) the assumptions on $C_{\bs k}$ and $\tilde C_{\bs k}$ guarantee the existence of a convex function $\psi_{\bs k}:\Bbb R^d \rightarrow \Bbb R$ such that $\nabla \psi_{\bs k}$ is the optimal transport from $C_{\bs k}d\bs k$ to $\tilde C_{\bs k}d\bs k$.  Let $\bs \eta_{\bs k}:= \frac{1}{t_0}(\nabla \psi_{\bs k}-\bs k)$ so that
 \begin{align}
 \label{geo eq number 1}
-\lambda^{(t)}:=(\bs k + t\bs\eta_{\bs k})\,\sharp\, C_{\bs k} = \big((1-\textstyle\frac{t}{t_0})\bs k + \textstyle\frac{t}{t_0}\nabla\psi_{\bs k}\big)\,\sharp\, C_{\bs k}. 
+\lambda^{(t)}:=(\bs k + t\bs\eta_{\bs k})\,\sharp\, C_{\bs k} = \big((1-\textstyle\frac{t}{t_0})\bs k + \textstyle\frac{t}{t_0}\nabla\psi_{\bs k}\big)\,\sharp\, C_{\bs k}.
 \end{align}
 The particular form of the right hand side of (\ref{geo eq number 1})  implies each measure $\lambda^{(t)}$ has a density $C_{\bs k}^{(t)}$ with respect to Lebesgue measure and the path of measures $\{\lambda^{(t)}\colon t\in[0,t_0] \}$ forms an $L_2$-Wasserstein geodesic with endpoints $C_{\bs k}d\bs k$ and $\tilde C_{\bs k}d\bs k$ at $t=0$ and $t=t_0$ respectively (see Proposition 5.9 in \cite{villani2003topics}). Moreover, $C^{(t)}_{\bs k}$ weakly satisfies (\ref{div flow for geo}) by Theorem 5.34 of \cite{villani2003topics} and the fact that $C^{(t)}_{\bs k} = T_t\,\sharp\, C^{(0)}_{\bs k}$ where $\partial_t T_t(\bs k) = \bs \eta_{\bs k}$.
 By  setting $\bs A=t\bs I_d$ in (\ref{eq: local spectral density for nonstationary phase}) one has
 \[
-\int  \exp\!\big(i(\bs x-\bs y)\!\cdot\! (\bs k + t\bs\eta_{\bs k})\big)\, C_{\bs k}\frac{d\bs k}{(2\pi)^d} 
+\int  \exp\!\big(i(\bs x-\bs y)\!\cdot\! (\bs k + t\bs\eta_{\bs k})\big)\, C_{\bs k}\frac{d\bs k}{(2\pi)^d}
 =\int \exp\!\big(i(\bs x-\bs y)\!\cdot\! \bs\omega\big)\,  C^{(t)}_{\bs \omega}\frac{d\bs \omega}{(2\pi)^d}
 \]
 which implies that for each $t\in[0,t_0]$ the measure $\lambda^{(t)}$ is a locally attainable spectral measure.
@@ -675,7 +685,7 @@ Isotropic spectral densities are an important special case for many statistical 
 Let $d\geq 1$ be an integer, $t_0 > 0$ be a real number and $C_{|\bs k|}$, $\tilde C_{|\bs k|}$ be two isotropic spectral densities on $\Bbb R^d$ with finite second moments and total mass $\sigma^2$. Define
 \begin{align}
 \bs \eta_{\bs k}:= \frac{1}{t_0}\Big(\tilde F^{-1}\circ F(|\bs k|)\frac{\bs k}{|\bs k|}-\bs k\Big)
-\end{align} 
+\end{align}
  where $F(r) := \frac{2\pi^{d/2}}{\sigma^2\Gamma(d/2)}\int_0^r \xi^{d-1}C_\xi d\xi$ and $\tilde F(r) := \frac{2\pi^{d/2}}{\sigma^2\Gamma(d/2)}\int_0^r \xi^{d-1}\tilde C_\xi d\xi$. Then for all $t\in[0,t_0]$, $\bs \eta_{\bs k}$ generates the spectral measures $\lambda^{(t)}:= (\bs k + t\bs \eta_{\bs k})\,\sharp\, C_{|\bs k|} $ defined in Claim \ref{claim any two spec are attainable}. In particular, $\{\lambda^{(t)} \colon t\in[0,t_0]\}$ forms a $L_2$-Wasserstein geodesic path of locally attainable spectral densities in $\mathscr C^{C,\bs \eta}$, with endpoints $\lambda^{(0)}=C_{|\bs k|}d\bs k$ and $\lambda^{(t_0)}=\tilde C_{|\bs k|}d\bs k$, where
 $\bs k + t\bs \eta_{\bs k}$ is the optimal transport from $\lambda^{(0)}$ to $\lambda^{(t)}$.
 \end{claim}
@@ -689,7 +699,7 @@ Let $\bs K$ and $\tilde {\bs K}$ be random vectors in $\Bbb R^d$ with densities 
 \begin{align*}
 P(\psi^\prime(|\bs K|)\leq r) = P\big(\big|\psi^\prime(|\bs K|)\textstyle\frac{\bs K}{|\bs K|}\big|\leq r\big) = P(|\tilde{\bs K}|\leq r).
 \end{align*}
-The optimal transport between two univariate random variables (see \cite{villani2003topics}) is given by the composition of the quantile function (of the target measure) and the cumulative distribution function (of the base measure). Therefore the optimal transport from $\mathscr L|\bs K|$ to $\mathscr L|\tilde{\bs K}|$ is given by $\tilde F^{-1}\circ F(r)$ where $F(r)=\frac{2\pi^{d/2}}{\sigma^2\Gamma(d/2)}\int_0^r \xi^{d-1}C_\xi d\xi$ and $\tilde F(r)=\frac{2\pi^{d/2}}{\sigma^2\Gamma(d/2)}\int_0^r \xi^{d-1}\tilde C_\xi d\xi$ are the cumulative distribution functions of $|\bs K|$ and $|\tilde{\bs K}|$, respectively. By the uniqueness of optimal transports one has $\psi^\prime(r)=\tilde F^{-1}\circ F(r)$ and therefore 
+The optimal transport between two univariate random variables (see \cite{villani2003topics}) is given by the composition of the quantile function (of the target measure) and the cumulative distribution function (of the base measure). Therefore the optimal transport from $\mathscr L|\bs K|$ to $\mathscr L|\tilde{\bs K}|$ is given by $\tilde F^{-1}\circ F(r)$ where $F(r)=\frac{2\pi^{d/2}}{\sigma^2\Gamma(d/2)}\int_0^r \xi^{d-1}C_\xi d\xi$ and $\tilde F(r)=\frac{2\pi^{d/2}}{\sigma^2\Gamma(d/2)}\int_0^r \xi^{d-1}\tilde C_\xi d\xi$ are the cumulative distribution functions of $|\bs K|$ and $|\tilde{\bs K}|$, respectively. By the uniqueness of optimal transports one has $\psi^\prime(r)=\tilde F^{-1}\circ F(r)$ and therefore
 \[
 \nabla (\psi(|\bs k|))=\psi^\prime(|\bs k|)\frac{\bs k}{|\bs k|} = \tilde F^{-1}\circ F(|\bs k|)\frac{\bs k}{|\bs k|}
 \]
@@ -705,16 +715,16 @@ As a corollary to the above theorem one can obtain partial closed form solutions
 \begin{corollary}[\textbf{Optimal transports between Mat\'ern spectral densities}]
 \label{corollary: Optimal transports between Matern spectral densities}
 Let $d\geq 1$ be an integer and $t_0,\nu,\tilde \nu, \rho, \tilde \rho,\sigma^2 > 0$ be real numbers such that $\nu,\tilde \nu >1$.
-If 
+If
 \begin{align}
 C_{|\bs k|} &= \sigma^22^{d}\pi^{d/2}\frac{\Gamma(\nu + d/2)}{\Gamma(\nu)}\left(\frac{4\nu}{\rho^2}\right)^{\nu}\left(\frac{4\nu}{\rho^2}+|\bs k|^2\right)^{-\nu-d/2} \label{eq: Ck matern}\\
 \tilde C_{|\bs k|} &= \sigma^2 2^{d}\pi^{d/2}\frac{\Gamma(\tilde\nu + d/2)}{\Gamma(\tilde\nu)}\left(\frac{4\tilde\nu}{\tilde\rho^2}\right)^{\tilde\nu}\left(\frac{4\tilde\nu}{\tilde\rho^2}+|\bs k|^2\right)^{-\tilde\nu-d/2}\label{eq: tildeCk matern}
-\end{align} 
+\end{align}
  then $F$ and $\tilde F^{-1}$, defined in Claim \ref{claim: isotropic spectral densities}, are given by
 \begin{align}
 \label{F0 for matern}
 F(r) &= I_{r^2/(4\nu / \rho^2 + r^2)}(d/2, \nu) \\
-\tilde F^{-1}(u) &= \left(\frac{4\tilde\nu}{\tilde\rho^2}\right)^{1/2}\left(\frac{1}{Q_u(d/2,\tilde\nu)} -1 \right)^{-1/2} 
+\tilde F^{-1}(u) &= \left(\frac{4\tilde\nu}{\tilde\rho^2}\right)^{1/2}\left(\frac{1}{Q_u(d/2,\tilde\nu)} -1 \right)^{-1/2}
 \label{Ft0inv for matern}
 \end{align}
 where $I_x(p,q)$ is the incomplete beta function and $Q_u(p,q)$ is the quantile function for a univariate $\text{Beta}(p,q)$ random variable evaluated at $u\in (0,1)$.
@@ -728,18 +738,18 @@ First notice that $ (2\pi)^d\sigma^2 =\int_{\Bbb R^d} C_{|\bs k|}d\bs k =  \int_
 \int_0^r \frac{y^{d-1}}{(a+y^2)^{\nu+d/2}} dy = \frac{1}{2a^\nu}\int_0^{\frac{r^2}{a+r^2}} (1-x)^{\nu-1}x^{d/2-1}dx = \frac{B(d/2,\nu)}{2a^\nu}I_{r^2/(a + r^2)}(d/2,\nu).
 \end{align*}
 Therefore $F(r) := \frac{2\pi^{d/2}}{\sigma^2(2\pi)^d\Gamma(d/2)}\int_0^r \xi^{d-1}C_\xi d\xi = I_{r^2/(4\nu / \rho^2 + r^2)}(d/2,\nu) $
-and similarly for $\tilde F(r)$. 
+and similarly for $\tilde F(r)$.
 This immediately gives (\ref{F0 for matern}) an (\ref{Ft0inv for matern}).
 \end{proof}
 
 The Wasserstein structure of the locally attainable spectral models gives a convenient geometric picture for  potential difficulties when estimating local spectra in the nonstationary phase model.
-For example, the space of probability distributions (with finite second moments) has positive curvature (in the sense of Aleksandrov's notion of metric curvature) under the $L_2$-Wasserstein metric \cite{ambrosio2008gradient}. 
+For example, the space of probability distributions (with finite second moments) has positive curvature (in the sense of Aleksandrov's notion of metric curvature) under the $L_2$-Wasserstein metric \cite{ambrosio2008gradient}.
 A less precise mathematical illustration of this is the fact is that the two locally attainable spectra, $(\bs k+ \bs A^T \bs\eta_{\bs k})\,\sharp\, C_{\bs k}$ and $(\bs k- \bs A^T \bs\eta_{\bs k})\,\sharp\, C_{\bs k}$, become asymptotically indistinguishable as the entries $\bs A$ become arbitrarily large. Indeed, the probability distributions of $\bs K + \bs A^T\bs\eta_{\bs K}$ and $\bs K - \bs A^T\bs\eta_{\bs K}$ are similar when $\bs K$ is a random vector with unnormalized density $C_{\bs k}$ and the magnitude of the entries of $\bs A$ are large (since $\bs\eta_{\bs k}$ has odd symmetry and $C_{\bs k}$ has even symmetric). One implication of this asymptotic non-identifiability is that estimates of the local spectra can break down when $\bs \theta(\bs x)$ has large local linear fluctuations (i.e. when the entries of $\bs A$ are large) so that the two local models $\bs \theta(\bs x)=\bs A\bs x + \bs b$ and $\bs \theta(\bs x)=-\bs A\bs x + \bs b$ are difficult to distinguish from the data.
 
 
 
-A possible numerical tool for probing this breakdown is to analyze the so called \textbf{\textit{cut locus}} associated with $L_2$-Wasserstein geodesics. Informally, the cut locus quantifies the maximal extent of geodesic paths emanating from some point. The cut locus of the geodesics emanating from $C_{\bs k}d\bs k$ can serve as a proxy for when curvature effects will corrupt local estimation of $\bs\theta(\bs x)$ due to the similarity between the two local spectra characterized by the local linear models $\bs \theta(\bs x)=\bs A\bs x + \bs b$ and $\bs \theta(\bs x)=-\bs A\bs x + \bs b$.  If the cut locus starting at $C_{\bs k}d\bs k$ is far from $C_{\bs k}d\bs k$ this implies the geodesic paths are long and the entries of $\bs A$ need to be much larger for curvature difficulties to arise.  In particular, fix $\bs A$ and consider the  locally attainable models $(\bs k+ c\bs A^T \bs\eta_{\bs k})\,\sharp\, C_{\bs k}$ indexed by $c\in \Bbb R$. If there exists a maximal $c_0>0$ such that $\{(\bs k+ c\bs A^T \bs\eta_{\bs k})\,\sharp\, C_{\bs k}\colon c\in[0,c_0]\}$ and $\{(\bs k+ c\bs A^T \bs\eta_{\bs k})\,\sharp\, C_{\bs k}\colon c\in[-c_0,0]\}$ are both $L_2$-Wasserstein geodesic, then nonstationary local linear models of the form $\theta(\bs x) = \pm c\bs A\bs x + \bs b$ are less exposed to curvature effects when $|c|\ll c_0$. 
-Claim \ref{claim: cut locus}, below, allows one to numerically compute the maximal such cutoff $c_0$ which characterizes, what we call, the {\it symmetric two sided cut locus}. 
+A possible numerical tool for probing this breakdown is to analyze the so called \textbf{\textit{cut locus}} associated with $L_2$-Wasserstein geodesics. Informally, the cut locus quantifies the maximal extent of geodesic paths emanating from some point. The cut locus of the geodesics emanating from $C_{\bs k}d\bs k$ can serve as a proxy for when curvature effects will corrupt local estimation of $\bs\theta(\bs x)$ due to the similarity between the two local spectra characterized by the local linear models $\bs \theta(\bs x)=\bs A\bs x + \bs b$ and $\bs \theta(\bs x)=-\bs A\bs x + \bs b$.  If the cut locus starting at $C_{\bs k}d\bs k$ is far from $C_{\bs k}d\bs k$ this implies the geodesic paths are long and the entries of $\bs A$ need to be much larger for curvature difficulties to arise.  In particular, fix $\bs A$ and consider the  locally attainable models $(\bs k+ c\bs A^T \bs\eta_{\bs k})\,\sharp\, C_{\bs k}$ indexed by $c\in \Bbb R$. If there exists a maximal $c_0>0$ such that $\{(\bs k+ c\bs A^T \bs\eta_{\bs k})\,\sharp\, C_{\bs k}\colon c\in[0,c_0]\}$ and $\{(\bs k+ c\bs A^T \bs\eta_{\bs k})\,\sharp\, C_{\bs k}\colon c\in[-c_0,0]\}$ are both $L_2$-Wasserstein geodesic, then nonstationary local linear models of the form $\theta(\bs x) = \pm c\bs A\bs x + \bs b$ are less exposed to curvature effects when $|c|\ll c_0$.
+Claim \ref{claim: cut locus}, below, allows one to numerically compute the maximal such cutoff $c_0$ which characterizes, what we call, the {\it symmetric two sided cut locus}.
 
 
 
@@ -749,25 +759,25 @@ Claim \ref{claim: cut locus}, below, allows one to numerically compute the maxim
 \begin{claim}
 \label{claim: cut locus}
 Let $d\geq 1$ be an integer, $c_0 > 0$ be a real number, $\bs A\in \Bbb R^d$, $C_{\bs k}$ is a spectral density on $\Bbb R^d$ with finite second moments and $\bs \eta_{\bs k}\colon \Bbb R^d \rightarrow \Bbb R^d$ which is $L_2(\Bbb R^d)$ integrable with respect to $C_{\bs k}d\bs k$.
-Suppose both 
+Suppose both
 $\bs k - c_0\bs A^T\bs \eta_{\bs k}$ and $\bs k + c_0\bs A^T\bs \eta_{\bs k}$
-are $C^1$ diffeomorphisms which are gradients of convex functions. Then 
-$\{(\bs k - c\bs A^T\bs \eta_{\bs k})\,\sharp\,C_{\bs k}\colon c\in[0,c_0]\}$ and $\{(\bs k + c\bs A^T\bs \eta_{\bs k})\,\sharp\,C_{\bs k}\colon c\in[0,c_0]\}$ are paths of absolutely continuous measures which are also $L_2$-Wasserstein geodesics. 
+are $C^1$ diffeomorphisms which are gradients of convex functions. Then
+$\{(\bs k - c\bs A^T\bs \eta_{\bs k})\,\sharp\,C_{\bs k}\colon c\in[0,c_0]\}$ and $\{(\bs k + c\bs A^T\bs \eta_{\bs k})\,\sharp\,C_{\bs k}\colon c\in[0,c_0]\}$ are paths of absolutely continuous measures which are also $L_2$-Wasserstein geodesics.
 \end{claim}
 % --------------------------------------------------------
 %  proof
 %---------------------------------------------------------
 \begin{proof}
-Let $\phi_{\bs k}$ and $\psi_{\bs k}$ be convex functions defined on $\Bbb R^d$ such that $\nabla \phi_{\bs k}=\bs k - c_0\bs A^T\bs \eta_{\bs k}$ and $\nabla \psi_{\bs k}=\bs k + c_0\bs A^T\bs \eta_{\bs k}$. By the diffeomorphic assumption on $\bs k - c_0\bs A^T\bs \eta_{\bs k}$ and $\bs k + c_0\bs A^T\bs \eta_{\bs k}$ there exists two spectral densities $C^{(-c_0)}_{\bs k}$ and $C^{(c_0)}_{\bs k}$ which satisfy 
+Let $\phi_{\bs k}$ and $\psi_{\bs k}$ be convex functions defined on $\Bbb R^d$ such that $\nabla \phi_{\bs k}=\bs k - c_0\bs A^T\bs \eta_{\bs k}$ and $\nabla \psi_{\bs k}=\bs k + c_0\bs A^T\bs \eta_{\bs k}$. By the diffeomorphic assumption on $\bs k - c_0\bs A^T\bs \eta_{\bs k}$ and $\bs k + c_0\bs A^T\bs \eta_{\bs k}$ there exists two spectral densities $C^{(-c_0)}_{\bs k}$ and $C^{(c_0)}_{\bs k}$ which satisfy
 \begin{align*}
 C^{(-c_0)}_{\bs k}d\bs k = (\bs k - c_0\bs A^T\bs \eta_{\bs k})\,\sharp\, C_{\bs k} \\
 C^{(c_0)}_{\bs k}d\bs k  = (\bs k + c_0\bs A^T\bs \eta_{\bs k})\,\sharp\, C_{\bs k} .
-\end{align*} 
+\end{align*}
 Now for any $c\in[0,c_0]$ one has
 \begin{align}
 \bs k - c\bs A^T\bs\eta_{\bs k} &= \big(1-\textstyle\frac{c}{c_0}\big)\bs k + \textstyle\frac{c}{c_0}\nabla\phi_{\bs k}\label{cutlocus eq 1} \\
 \bs k + c\bs A^T\bs\eta_{\bs k} &= \big(1-\textstyle\frac{c}{c_0}\big)\bs k + \textstyle\frac{c}{c_0}\nabla\psi_{\bs k}\label{cutlocus eq 2}.
-\end{align} 
+\end{align}
 The explicit form of the right hand side of (\ref{cutlocus eq 1}) and (\ref{cutlocus eq 2}) imply $\{ (\bs k - c\bs A^T\bs \eta_{\bs k})\,\sharp\, C_{\bs k} :c\in[0,c_0]\}$  and  $\{ (\bs k + c\bs A^T\bs \eta_{\bs k})\,\sharp\, C_{\bs k} :c\in[0,c_0]\}$  are $L_2$-Wasserstein geodesics of absolutely continuous measures, connecting $C^{(-c_0)}_{\bs k}d\bs k$ to $C_{\bs k}d\bs k $ and  $C_{\bs k}d\bs k$ to $C^{(c_0)}_{\bs k} d\bs k$ respectively (by Proposition 5.9 in \cite{villani2003topics}).
 \end{proof}
 
@@ -779,23 +789,23 @@ The explicit form of the right hand side of (\ref{cutlocus eq 1}) and (\ref{cutl
 \subsection{Modeling $\bs \xi_{\bs k}, C_{\bs k}$ and $\bs\eta_{\bs k}$}
 \label{section: modeling xi, C and eta}
 
-In this section we give some informal guidance for specifying $\bs \xi_{\bs k}, C_{\bs k}$ and $\bs\eta_{\bs k}$ in the nonstationary spectral phase model (see Definition \ref{def: nonstate phase}). Since the quadratic estimate is  adept at detecting small departures from stationarity---partly due to the accuracy of the variance calculations and the speed at which the quadratic estimate can be simulated under a null stationary model---we focus on the situation where the statistician wants to estimate or detect nonstationary extensions of a stationary model. Further details of this approach can be found in the simulation sections \ref{section: nonstat example d=1} and \ref{section: nonstat example d=2}. 
+In this section we give some informal guidance for specifying $\bs \xi_{\bs k}, C_{\bs k}$ and $\bs\eta_{\bs k}$ in the nonstationary spectral phase model (see Definition \ref{def: nonstate phase}). Since the quadratic estimate is  adept at detecting small departures from stationarity---partly due to the accuracy of the variance calculations and the speed at which the quadratic estimate can be simulated under a null stationary model---we focus on the situation where the statistician wants to estimate or detect nonstationary extensions of a stationary model. Further details of this approach can be found in the simulation sections \ref{section: nonstat example d=1} and \ref{section: nonstat example d=2}.
 
 
-\paragraph{Modeling $C_{\bs k}$ and $\bs\eta_{\bs k}$.} In sections \ref{section: nonstat example d=1} and \ref{section: nonstat example d=2}  we model $\bs\eta_{\bs k}$ implicitly by specifying two spectral densities $C_{\bs k}, \tilde C_{\bs k}$ and require that they both be locally attainable in the nonstationary random field model (note: $C_{\bs k}$ and $\tilde C_{\bs k}$ must have the same $L_1(\Bbb R^d)$ integral). In other words we construct a vector field $\bs \eta_{\bs k}$ from $C_{\bs k}$ and $\tilde C_{\bs k}$ by requiring  $\tilde C_{\bs k}\in \mathscr C^{C,\bs \eta}$. The results of Section \ref{section: Locally attainable spectral densities} show this is possible by setting 
+\paragraph{Modeling $C_{\bs k}$ and $\bs\eta_{\bs k}$.} In sections \ref{section: nonstat example d=1} and \ref{section: nonstat example d=2}  we model $\bs\eta_{\bs k}$ implicitly by specifying two spectral densities $C_{\bs k}, \tilde C_{\bs k}$ and require that they both be locally attainable in the nonstationary random field model (note: $C_{\bs k}$ and $\tilde C_{\bs k}$ must have the same $L_1(\Bbb R^d)$ integral). In other words we construct a vector field $\bs \eta_{\bs k}$ from $C_{\bs k}$ and $\tilde C_{\bs k}$ by requiring  $\tilde C_{\bs k}\in \mathscr C^{C,\bs \eta}$. The results of Section \ref{section: Locally attainable spectral densities} show this is possible by setting
 \begin{align}
 \label{eq: modeling eta}
 \bs \eta_{\bs k}:=  \frac{1}{t_0}(\nabla \psi_{\bs k}-\bs k)
 \end{align}
- where  $\nabla \psi_{\bs k}$ is the optimal transport from $C_{\bs k}$ to $\tilde C_{\bs k}$ and $t_0>0$ is determined  by the  desired physical units of $\bs \theta(\bs x)$ or is set to balance the bias and variance of the quadratic estimate (more on this in the next paragraph). Corollary \ref{corollary: Optimal transports between Matern spectral densities} seems particularity useful for this approach in that $C_{\bs k}$ can be determined by an overall Mat\'ern fit and $\tilde C_{\bs k}$ can be defined by perturbing the Mat\'ern  parameters in a direction of interest. For example, consider the case where one is interested in detecting nonstationarity arising from spatial variation in the Mat\'ern smoothness parameter $\nu$.  Using the notation given in Corollary \ref{corollary: Optimal transports between Matern spectral densities} one could estimate $\sigma^2$, $\rho$ and  $\nu$ (the parameters of $C_{\bs k}$) by an overall stationary fit, then define  $\tilde\nu := \nu + \epsilon$ and $\tilde \rho := \rho$ (the parameters of $\tilde C_{\bs k}$) for some $\epsilon\in\Bbb R$.  
+ where  $\nabla \psi_{\bs k}$ is the optimal transport from $C_{\bs k}$ to $\tilde C_{\bs k}$ and $t_0>0$ is determined  by the  desired physical units of $\bs \theta(\bs x)$ or is set to balance the bias and variance of the quadratic estimate (more on this in the next paragraph). Corollary \ref{corollary: Optimal transports between Matern spectral densities} seems particularity useful for this approach in that $C_{\bs k}$ can be determined by an overall Mat\'ern fit and $\tilde C_{\bs k}$ can be defined by perturbing the Mat\'ern  parameters in a direction of interest. For example, consider the case where one is interested in detecting nonstationarity arising from spatial variation in the Mat\'ern smoothness parameter $\nu$.  Using the notation given in Corollary \ref{corollary: Optimal transports between Matern spectral densities} one could estimate $\sigma^2$, $\rho$ and  $\nu$ (the parameters of $C_{\bs k}$) by an overall stationary fit, then define  $\tilde\nu := \nu + \epsilon$ and $\tilde \rho := \rho$ (the parameters of $\tilde C_{\bs k}$) for some $\epsilon\in\Bbb R$.
 
-Generally larger values of $t_0$ or smaller values of $\epsilon$ will increase estimation variance and decrease estimation bias. We do not yet have a coherent story for the precise nature the dependence of bias and variance as a function of $t_0$ and $\epsilon$. However,  the cut locus of the $L_2$-Wasserstein geodesics emanating from $C_{\bs k}$  (discussed at the end of Section \ref{section: Locally attainable spectral densities}) can be a useful tool for probing this dependence. For example, given $t_0$ and $\epsilon$ one can compute the maximal $c_0$ which satisfies the antecedent of Claim \ref{claim: cut locus}. This maximal $c_0$ effectively characterizes the \textit{symmetric two-sided cut locus} (c.f. Claim \ref{claim: cut locus}) and heuristically serves to characterize an upper bound on the magnitude of the entries of $\bs A$, beyond which bias is likely to dominate. 
-This will be explored in more detail in Section \ref{section: nonstat example d=1} as a diagnostic tool for determining values of  $t_0$ and $\epsilon$ that result in  large quadratic estimation bias. 
-
-
+Generally larger values of $t_0$ or smaller values of $\epsilon$ will increase estimation variance and decrease estimation bias. We do not yet have a coherent story for the precise nature the dependence of bias and variance as a function of $t_0$ and $\epsilon$. However,  the cut locus of the $L_2$-Wasserstein geodesics emanating from $C_{\bs k}$  (discussed at the end of Section \ref{section: Locally attainable spectral densities}) can be a useful tool for probing this dependence. For example, given $t_0$ and $\epsilon$ one can compute the maximal $c_0$ which satisfies the antecedent of Claim \ref{claim: cut locus}. This maximal $c_0$ effectively characterizes the \textit{symmetric two-sided cut locus} (c.f. Claim \ref{claim: cut locus}) and heuristically serves to characterize an upper bound on the magnitude of the entries of $\bs A$, beyond which bias is likely to dominate.
+This will be explored in more detail in Section \ref{section: nonstat example d=1} as a diagnostic tool for determining values of  $t_0$ and $\epsilon$ that result in  large quadratic estimation bias.
 
 
-\paragraph{Modeling $\bs \xi_{\bs k}$.} In some cases the spectral multiplier $\bs \xi_{\bs k}$ will be constrained by the physics of a particular application. An example of such a constraint is that $\bs \theta(\bs x)$ be required to be curl free or divergence free. Indeed, a curl free constraint is enforced in the gravitational lensing problem  by setting $\bs \xi_{\bs k}=i\bs k$. In the absence of such constraints one can potentially use $\bs \xi_{\bs k}$ to restrict the possible matrices $\bs A$ which parameterize  the locally attainable spectral models  $\mathscr C^{C,\bs\eta}= \big\{ (\bs k+ \bs A^T \bs\eta_{\bs k})\,\sharp\, C_{\bs k}: \bs A \in \Bbb R^{d\times d}\big\}$.   If $\xi_{\bs k}:= i\bs k$, for example, then $\bs A$ must be of the form $(\partial_{\bs x_p}\partial_{\bs x_q}\phi(\bs x))_{p,q=1}^d = \bs U\bs \Lambda \bs U^T$ where $\bs U$ is a rotation matrix and $\bs \Lambda$ is a diagonal matrix with real entries. 
+
+
+\paragraph{Modeling $\bs \xi_{\bs k}$.} In some cases the spectral multiplier $\bs \xi_{\bs k}$ will be constrained by the physics of a particular application. An example of such a constraint is that $\bs \theta(\bs x)$ be required to be curl free or divergence free. Indeed, a curl free constraint is enforced in the gravitational lensing problem  by setting $\bs \xi_{\bs k}=i\bs k$. In the absence of such constraints one can potentially use $\bs \xi_{\bs k}$ to restrict the possible matrices $\bs A$ which parameterize  the locally attainable spectral models  $\mathscr C^{C,\bs\eta}= \big\{ (\bs k+ \bs A^T \bs\eta_{\bs k})\,\sharp\, C_{\bs k}: \bs A \in \Bbb R^{d\times d}\big\}$.   If $\xi_{\bs k}:= i\bs k$, for example, then $\bs A$ must be of the form $(\partial_{\bs x_p}\partial_{\bs x_q}\phi(\bs x))_{p,q=1}^d = \bs U\bs \Lambda \bs U^T$ where $\bs U$ is a rotation matrix and $\bs \Lambda$ is a diagonal matrix with real entries.
 
 
 % --------------------------------------------------------
@@ -816,11 +826,11 @@ In this section we present a simulation example to illustrate the quadratic esti
 
 
 
-Following the modeling approach outlined in Section \ref{section: modeling xi, C and eta} we first define $C_k$ to be the  Mat\'ern spectral density given in (\ref{eq: Ck matern}) with parameters $(\nu, \rho, \sigma^2):=(2, 0.05, 1)$. Now  $\eta_k$ is defined implicitly by specifying a second spectral density $\tilde C_k$ that is required to be locally attainable within the same nonstationary phase model for $Z(x)$. $\tilde C_k$ is defined to be the  Mat\'ern spectral density given in (\ref{eq: tildeCk matern})  with parameters $(\tilde \nu, \tilde\rho, \sigma^2):=(2.1, 0.05, 1)$. The variance parameter $\sigma^2$ is the same for both $C_k$ and  $\tilde C_k$ as per the necessary requirement for locally attainable spectral densities. Notice that the only difference between the two Mat\'ern models is the fractional smoothness parameter which is set to model nonstationarity in the local smoothness in $Z(x)$.  The parameter $t_0$ used in (\ref{eq: modeling eta}) to determine $\eta_k$ is set to $1.5$ for Figure \ref{Figure 2 zx and var} and $1.5/7$ for Figure \ref{Figure 2 zx and var, extra bias}. 
+Following the modeling approach outlined in Section \ref{section: modeling xi, C and eta} we first define $C_k$ to be the  Mat\'ern spectral density given in (\ref{eq: Ck matern}) with parameters $(\nu, \rho, \sigma^2):=(2, 0.05, 1)$. Now  $\eta_k$ is defined implicitly by specifying a second spectral density $\tilde C_k$ that is required to be locally attainable within the same nonstationary phase model for $Z(x)$. $\tilde C_k$ is defined to be the  Mat\'ern spectral density given in (\ref{eq: tildeCk matern})  with parameters $(\tilde \nu, \tilde\rho, \sigma^2):=(2.1, 0.05, 1)$. The variance parameter $\sigma^2$ is the same for both $C_k$ and  $\tilde C_k$ as per the necessary requirement for locally attainable spectral densities. Notice that the only difference between the two Mat\'ern models is the fractional smoothness parameter which is set to model nonstationarity in the local smoothness in $Z(x)$.  The parameter $t_0$ used in (\ref{eq: modeling eta}) to determine $\eta_k$ is set to $1.5$ for Figure \ref{Figure 2 zx and var} and $1.5/7$ for Figure \ref{Figure 2 zx and var, extra bias}.
 
 
 
-A single ground truth potential $\phi(x)$ is used throughout this section and was simulated from a mean zero stationary Gaussian process with Mat\'ern parameters $(\nu, \rho, \sigma^2):=(5, 1.5, 15^2 / (2\pi)^4)$. The spectral multiplier $\xi_k$ is set to $ik$ so that $\theta(x) = \phi^\prime(x) $.  The derivative $\theta^\prime(x)$, in particular $\phi^{\prime\prime}(x)$, is shown in blue in the middle plot of figures \ref{Figure 2 zx and var} and \ref{Figure 2 zx and var, extra bias}.  
+A single ground truth potential $\phi(x)$ is used throughout this section and was simulated from a mean zero stationary Gaussian process with Mat\'ern parameters $(\nu, \rho, \sigma^2):=(5, 1.5, 15^2 / (2\pi)^4)$. The spectral multiplier $\xi_k$ is set to $ik$ so that $\theta(x) = \phi^\prime(x) $.  The derivative $\theta^\prime(x)$, in particular $\phi^{\prime\prime}(x)$, is shown in blue in the middle plot of figures \ref{Figure 2 zx and var} and \ref{Figure 2 zx and var, extra bias}.
 The quantities $C^{(0)}_\ell, C^{(1)}_\ell, C^{(2)}_\ell$ and $C^{ZZobs}_\ell$ used to generate  $\hat\phi_\ell$, $C^{\text{var\,}\hat\phi}_{\ell}$ and $C^{\text{bias\,}\hat\phi}_{\ell}$ are determined by (\ref{eq: C(1), C(2) and C(3) for nonstationary phase}) and (\ref{eq: CZZobs for nonstationary phase}). Finally, to avoid potential aliasing issues in the simulated data $Z^{obs}(x)$, the quadratic estimate is set to ignore $10\%$ of Fourier coefficients which are nearest the Nyquist limit by truncating the weights corresponding to those frequency pairs.
 
 
@@ -838,8 +848,8 @@ The main purpose of this simulation is intended to illustrate the accuracy of th
 
 
 
-The process $Z(x)$ in this section is defined on $[-5,5)$ with periodic boundary conditions. 
-The observed process $Z^{obs}(x)$ is simulated without additive noise on $10^4$ evenly spaced observation locations in $[-5,5)$.  A simple discrete Riemann sum approximation, at each observed $x$, was used to approximate to the integral (\ref{eq: nonstate phase}) to generate the simulation of $Z^{obs}(x)$. In general, this type of approximation will result in aliasing errors. Generating a distributionally exact simulation of $Z(x)$, without any approximation, appears to be an open problem.   It is not yet clear what impact the aliasing errors, present in our simulation, have on the quadratic estimate. However, we found little empirical difference in the performance of the quadratic estimate when reducing the aliasing errors by increasing the frequency upper limit used for the Riemann sum approximation. 
+The process $Z(x)$ in this section is defined on $[-5,5)$ with periodic boundary conditions.
+The observed process $Z^{obs}(x)$ is simulated without additive noise on $10^4$ evenly spaced observation locations in $[-5,5)$.  A simple discrete Riemann sum approximation, at each observed $x$, was used to approximate to the integral (\ref{eq: nonstate phase}) to generate the simulation of $Z^{obs}(x)$. In general, this type of approximation will result in aliasing errors. Generating a distributionally exact simulation of $Z(x)$, without any approximation, appears to be an open problem.   It is not yet clear what impact the aliasing errors, present in our simulation, have on the quadratic estimate. However, we found little empirical difference in the performance of the quadratic estimate when reducing the aliasing errors by increasing the frequency upper limit used for the Riemann sum approximation.
 
 
 
@@ -848,9 +858,9 @@ The observed process $Z^{obs}(x)$ is simulated without additive noise on $10^4$ 
 Figure \ref{Figure 2 zx and var} shows the results of our simulation when $t_0$ is set to $1.5$. The \textbf{top plot} shows a simulation of the nonstationary phase process $Z(x)$. The \textbf{blue line} in the \textbf{middle plot} shows $\theta^\prime(x)$ along with $5$ realizations of the quadratic estimate $\hat\theta^\prime(x)$, shown in \textbf{grey}, each one applied to an independent realization of $Z(x)$ with the same $\phi(x)$ . The \textbf{dashed line} in the \textbf{middle plot} shows an empirical estimate to $E(\hat\theta^\prime(x)|\phi)$ based on averaging the quadratic estimate applied to $100$ independent realizations $Z(x)$ all simulated with the same nonstationary potential $\phi(x)$. On average, computing these $100$ quadratic estimates (each based on $10^4$ observations) took $0.008$ seconds on a 2013 MacBook Pro with a 2.3 GHz Intel Core i7 CPU. This illustrates that the quadratic estimate can be computed extremely fast on a dense set of observations. Notice also the estimate is accurate with respect to both variance and bias. Indeed, by comparing signal spectral density $\ell^2 C_\ell^{\phi\phi}$ (\textbf{dotted black line} in \textbf{both bottom plots})  with  $\ell^2 C^{\text{var\,}\hat\phi}_{\ell}$ and $\ell^2 C^{\text{bias\,}\hat\phi}_{\ell}$  (\textbf{green and red lines} respectively) one can see that the signal-to-noise ratio for estimation accuracy per-frequency is significantly greater than $1$ for a large range of wavenumbers. The \textbf{bottom two plots} in Figure \ref{Figure 2 zx and var} show the accuracy of the analytic approximations $\ell^2 C^{\text{var\,}\hat\phi}_{\ell}$ and  $\ell^2 C^{\text{bias\,}\hat\phi}_{\ell}$ for quantifying the empirical variance and bias (\textbf{green and red dots} respectively) computed from the $100$ realizations of $\hat\theta^\prime(x)$. The computation of $C^{\text{var\,}\hat\phi}_{\ell}$ took $0.098$ seconds. The fast approximation to  $\ell^2 C^{\text{bias\,}\hat\phi}_{\ell}$ is plotted with the \textbf{dashed blue line} in the \textbf{bottom right plot}. This approximation can be seen to be very accurate, nearly indistinguishable from the \textbf{red line}, and took only $0.308$ seconds to compute (compared to $99.44$ seconds for computing  $C^{\text{bias\,}\hat\phi}_{\ell}$ directly).
 
 
-In Figure \ref{Figure 2 zx and var, extra bias} we show another simulation which is similar the one shown in Figure \ref{Figure 2 zx and var} with the exception that $t_0$ is reduced from $1.5$ to $1.5/7$. This has the effect of shrinking the two-sided cut locus (discussed in Section \ref{section: modeling xi, C and eta}). This is  equivalent to scaling $\phi(x)$ by a factor of $7$ which has the effect of dramatically increasing the bias in the quadratic estimate. Indeed, the main point of Figure \ref{Figure 2 zx and var, extra bias} is to illustrate the qualitative features of the quadratic estimate bias when $\phi(x)$ is too large for the linear approximation in (\ref{first order term, intro}) to hold. 
+In Figure \ref{Figure 2 zx and var, extra bias} we show another simulation which is similar the one shown in Figure \ref{Figure 2 zx and var} with the exception that $t_0$ is reduced from $1.5$ to $1.5/7$. This has the effect of shrinking the two-sided cut locus (discussed in Section \ref{section: modeling xi, C and eta}). This is  equivalent to scaling $\phi(x)$ by a factor of $7$ which has the effect of dramatically increasing the bias in the quadratic estimate. Indeed, the main point of Figure \ref{Figure 2 zx and var, extra bias} is to illustrate the qualitative features of the quadratic estimate bias when $\phi(x)$ is too large for the linear approximation in (\ref{first order term, intro}) to hold.
 Indeed, when the magnitude of the true $\theta^\prime(x)$ exceeds the two-sided cut locus, the estimate $\hat\theta^\prime(x)$ transitions from a low bias estimate to a bias dominated one as seen in the \textbf{middle plot}. This is presumably due to the ability of the two-sided cut locus to identify when the geodesic path of local spectral densities begins to curl in on itself, creating an ill-posed inversion from observed local spectral density to estimate $\phi(x)$.
- 
+
 
 
 \begin{figure}
@@ -872,7 +882,7 @@ Indeed, when the magnitude of the true $\theta^\prime(x)$ exceeds the two-sided 
 
 In this section we perform a simulation example to illustrate the quadratic estimate applied to a nonstationary spectral phase random field $Z(\bs x)$ in dimension $d=2$. Besides the increase of dimension, there are two main differences in this simulation as compared to the simulation given in Section \ref{section: nonstat example d=1}. The first difference is that the spectral multiplier $\bs \xi_{\bs k}$ is set to $(i\bs k_2, -i\bs k_1)^T$ where $\bs k = (\bs k_1, \bs k_2)$. Therefore $\bs \theta(\bs x) = (\partial_{\bs x_2}\phi(\bs x), -\partial_{\bs x_1}\phi(\bs x))^T$ is a divergent free vector field. The second main difference is that the two spectral densities $C_{\bs k}$ and $\tilde C_{\bs k}$, defined by (\ref{eq: Ck matern}) and (\ref{eq: tildeCk matern}), have different Mat\'ern parameter values as those used in Section \ref{section: nonstat example d=1}. The parameter values for $C_{\bs k}$  are given by $(\nu, \rho, \sigma^2):=(1.5, 0.015, 1)$ and the parameter values for $\tilde C_{\bs k}$ are given by $(\tilde \nu, \tilde\rho, \sigma^2):=(1.7, 0.014, 1)$. Recall that $C_{\bs k}$ and $\tilde C_{\bs k}$ are used to generate $\bs \eta_{\bs k}$ (c.f. Section \ref{section: modeling xi, C and eta}) by requiring both $C_{\bs k}$ and $\tilde C_{\bs k}$ be locally attainable spectral models in $Z(\bs x)$. Therefore the corresponding quadratic estimate is tuned to detect not only a variation in the smoothness of $Z(\bs x)$ but also a corresponding scale change, where the correspondence is related inversely (an increase in smoothness corresponding to a reduction of spatial scale and vice versa).
 
-For this simulation example, the process $Z(\bs x)$  is defined on $[-\pi,\pi)^2$ with periodic boundary conditions and the observed process $Z^{obs}(\bs x)$ is generated without additive noise on a evenly spaced grid of size $400 \times 400$. Just as in Section \ref{section: nonstat example d=1}, a simple discrete Riemann sum approximation, at each observed $\bs x$, was used to approximate to the integral (\ref{eq: nonstate phase}) for generating the simulation of $Z^{obs}(\bs x)$. 
+For this simulation example, the process $Z(\bs x)$  is defined on $[-\pi,\pi)^2$ with periodic boundary conditions and the observed process $Z^{obs}(\bs x)$ is generated without additive noise on a evenly spaced grid of size $400 \times 400$. Just as in Section \ref{section: nonstat example d=1}, a simple discrete Riemann sum approximation, at each observed $\bs x$, was used to approximate to the integral (\ref{eq: nonstate phase}) for generating the simulation of $Z^{obs}(\bs x)$.
 The ground truth potential $\phi(\bs x)$, used to generate the nonstationarity in $Z(\bs x)$, is simulated from a mean zero stationary Gaussian process with Mat\'ern parameters $(\nu, \rho, \sigma^2):=(5, 0.3 \pi, 0.5^2)$. Just as in Section \ref{section: nonstat example d=1} the quantities $C^{(0)}_{\bs \ell}, C^{(1)}_{\bs \ell}, C^{(2)}_{\bs \ell}$ and $C^{ZZobs}_{\bs \ell}$ used to generate  $\hat\phi_{\bs\ell}$, $C^{\text{var\,}\hat\phi}_{\bs\ell}$ and $C^{\text{bias\,}\hat\phi}_{\bs \ell}$ are determined by (\ref{eq: C(1), C(2) and C(3) for nonstationary phase}) and (\ref{eq: CZZobs for nonstationary phase}). Finally, the parameter $t_0$ used in (\ref{eq: modeling eta}) to determine $\bs \eta_k$ is set to $1.5$.
 
 
@@ -895,18 +905,18 @@ Figure \ref{Figure 3} graphically summarizes the simulation results. The \textbf
 
 Part of the motivation for this paper is an attempt to construct an extended class of nonstationary random fields, and a corresponding generalized quadratic estimate, which share the same attractive statistical properties of an estimate originally developed for gravitational lensing studies of the Cosmic Microwave Background \cite{hu2001mapping, hu2002mass}.  In doing so we have identified a particular form of nonstationarity, we call {\it local invariance}, which encourages a delicate cancellation of estimation bias. This local invariant property---we believe---is the main source of what makes the gravitational lensing estimates so successful.  Indeed, the generalized quadratic estimate, derived in Section~\ref{section: local invariant}, shares many of the same attractive statistical features as the original gravitational lensing estimate: it is particularly adept at detecting small departures from stationarity and allows fast, accurate quantification of mean square sampling properties.  In Section~\ref{section: NPhase} we focus on a particular subclass of locally invariant nonstationary random fields which are given by a spatially varying spectral phase modulation of a stationary random field. In this work, the theory of optimal transport and the $L_2$-Wasserstein metric play a major role in characterizing the behavior of the set of possible local spectral densities under these models and leads to a natural heuristic for quantifying estimation bias in terms of the Wasserstein geodesic cut locus (see Claim \ref{claim: cut locus}, Section \ref{section: modeling xi, C and eta} and Figure \ref{Figure 2 zx and var, extra bias}).
 
-One of the byproducts of this paper is the understanding that a nonstationary spectral phase can be estimated by analyzing the correlation among the Fourier coefficients of the nonstationary random field $Z(\bs x)$. This was illustrated in Section~\ref{section: NPhase} using a quadratic estimate to reconstruct a spatially varying spectral phase modulation of a stationary random field. Left unanswered, however, is the question of how one simultaneously estimates both the phase and the magnitude of the spectral modulation $A(\bs k, \bs x)$ in model (\ref{eq: intro nonstat phase model}). It appears this line of research has the potential to merge the seminal work of Dahlhaus \cite{dahlhaus1997fitting,dahlhaus2000likelihood} with the generalized quadratic estimate, presented here, for nonstationary estimation within a broad class of nonstationary random fields. 
+One of the byproducts of this paper is the understanding that a nonstationary spectral phase can be estimated by analyzing the correlation among the Fourier coefficients of the nonstationary random field $Z(\bs x)$. This was illustrated in Section~\ref{section: NPhase} using a quadratic estimate to reconstruct a spatially varying spectral phase modulation of a stationary random field. Left unanswered, however, is the question of how one simultaneously estimates both the phase and the magnitude of the spectral modulation $A(\bs k, \bs x)$ in model (\ref{eq: intro nonstat phase model}). It appears this line of research has the potential to merge the seminal work of Dahlhaus \cite{dahlhaus1997fitting,dahlhaus2000likelihood} with the generalized quadratic estimate, presented here, for nonstationary estimation within a broad class of nonstationary random fields.
 
 
 It is also important to mention the fact that we have derived our results under the rather idealized assumption that the observations locations form a dense regular grid and $Z(\bs x)$ has periodic boundary conditions. Extensions to more realistic experimental conditions are not in the scope of this paper but are clearly important for real life applications. The situation is not hopeless, however, since these same features are ubiquitous in measurements of the Cosmic Microwave Background. Despite this, Cosmologists have devised methods which turn the idealized quadratic estimate into a pragmatic statistical tool for probing gravitational lensing (see \cite{namikawa2013bias,van2012measurement,planck2013lensing,planck2015lensing}, for example). This suggests there exist analogous methods which can make the generalized quadratic estimate available to more general observational scenarios.
 
 
-We finish with a discussion of Assumption \ref{Assumption 2} that stipulates $\bs \theta(\bs x)$ be characterized by a scalar potential $\phi(\bs x)$.  It is yet unclear how one generalizes this assumption, especially in the case where $\bs \theta(\bs x)$ maps into a higher dimensional space $\Bbb R^m$ for $m>d$. Notice that by considering a general $\bs \theta(\bs x)\colon\Bbb R^d \rightarrow \Bbb R^m$ one may redefine $\bs\theta(\bs x)$ by absorbing (i.e. concatenating) the observation locations $\bs x$ into extra coordinates of $\bs \theta(\bs x)$. This generalization enables one to replace the local invariant condition $\text{cov}(Z(\bs x), Z(\bs y))=K(\bs x-\bs y, \bs\theta(\bs x) - \bs \theta(y))$ with the more general condition 
+We finish with a discussion of Assumption \ref{Assumption 2} that stipulates $\bs \theta(\bs x)$ be characterized by a scalar potential $\phi(\bs x)$.  It is yet unclear how one generalizes this assumption, especially in the case where $\bs \theta(\bs x)$ maps into a higher dimensional space $\Bbb R^m$ for $m>d$. Notice that by considering a general $\bs \theta(\bs x)\colon\Bbb R^d \rightarrow \Bbb R^m$ one may redefine $\bs\theta(\bs x)$ by absorbing (i.e. concatenating) the observation locations $\bs x$ into extra coordinates of $\bs \theta(\bs x)$. This generalization enables one to replace the local invariant condition $\text{cov}(Z(\bs x), Z(\bs y))=K(\bs x-\bs y, \bs\theta(\bs x) - \bs \theta(y))$ with the more general condition
 \begin{align}
 \label{eq: embedding}
 \text{cov}(Z(\bs x), Z(\bs y))=K(\bs\theta(\bs x) - \bs \theta(\bs y)).
 \end{align}
-Random fields $Z(\bs x)$, which have a covariance function of the form (\ref{eq: embedding}), are simply traces of stationary random fields defined on the higher dimensional space $\Bbb R^m$, restricted to the $d$-dimensional parameterized surface $\{\bs\theta(\bs x):\bs x\in\Bbb R^d\}$. Viewed from this perspective, it appears plausible that there exists a deeper, more geometric, picture of local invariance and quadratic estimation. It is not yet clear whether or not this viewpoint is useful, but it is tempting to imagine that the generalized quadratic estimate is simply a manifold embedding estimate in disguise. If such a development bears theoretical fruit, it would be a major step in the direction of a unified statistical theory of nonstationary random fields. 
+Random fields $Z(\bs x)$, which have a covariance function of the form (\ref{eq: embedding}), are simply traces of stationary random fields defined on the higher dimensional space $\Bbb R^m$, restricted to the $d$-dimensional parameterized surface $\{\bs\theta(\bs x):\bs x\in\Bbb R^d\}$. Viewed from this perspective, it appears plausible that there exists a deeper, more geometric, picture of local invariance and quadratic estimation. It is not yet clear whether or not this viewpoint is useful, but it is tempting to imagine that the generalized quadratic estimate is simply a manifold embedding estimate in disguise. If such a development bears theoretical fruit, it would be a major step in the direction of a unified statistical theory of nonstationary random fields.
 
 
 
@@ -961,11 +971,15 @@ Random fields $Z(\bs x)$, which have a covariance function of the form (\ref{eq:
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\textcolor{red}{Re-write this part to be explicit about what is rigourous and what is not. Maybe consider moving the rigourous algebraic manipuliations relating the Fourier characterization and the fast algorithm to a claim in the main body of the paper.}
+\textcolor{magenta}{Consider actually proving (or citing) that the periodic transform follows the same behavior of the continuous trasform, whereby justifying the notational convention.}
+
+
 \begin{claim}
 \label{claim: first order expansion}
 Let $\bs\theta(\bs x)\colon \Bbb R^d \rightarrow \Bbb R^d$ be a vector field and $Z(\bs x)$ be a random field which satisfies
 $E\big(Z(\bs x)Z(\bs y)|\bs \theta(\cdot)\big)= C^{(0)}(\bs x-
-\bs y) + \bs C^{(1)}(\bs x-\bs y)\cdot(\bs\theta(\bs x)-\bs\theta(\bs y)) +  \mathcal O(\bs\theta^2)$. Then 
+\bs y) + \bs C^{(1)}(\bs x-\bs y)\cdot(\bs\theta(\bs x)-\bs\theta(\bs y)) +  \mathcal O(\bs\theta^2)$. Then
 \begin{align}
 \label{eq in claim: first order expansion}
 E(Z_{\bs k+\bs \ell}Z_{-\bs k}|\bs \theta(\cdot)) &= \bs\theta_{\bs \ell}\cdot\big(\bs C^{(1)}_{\bs k} - \bs C_{\bs k+\bs \ell}^{(1)}\big) + \mathcal O(\bs\theta^2)
@@ -975,7 +989,7 @@ when $\bs\ell\neq 0$.
 
 
 \begin{proof}
-The Fourier transform $C^{(0)}(\bs x-\bs y)$, with respect to $\bs x$ and $\bs y$, gives  $\delta_{\bs \ell_1 + \bs \ell_2} {(2\pi)}^{d/2} C^{(0)}_{\bs \ell_1}$. 
+The Fourier transform $C^{(0)}(\bs x-\bs y)$, with respect to $\bs x$ and $\bs y$, gives  $\delta_{\bs \ell_1 + \bs \ell_2} {(2\pi)}^{d/2} C^{(0)}_{\bs \ell_1}$.
 %% --- extra details
 % \begin{align*}
 % \iint e^{-i\bs x\cdot \bs \ell_1} e^{-i\bs y\cdot \bs \ell_2}C^{(0)}(\bs x-\bs y)\frac{d\bs xd\bs y}{(2\pi)^{d}} &= \iint e^{-i(\bs z+\bs y)\cdot \bs \ell_1} e^{-i\bs y\cdot \bs \ell_2}C^{(0)}(\bs z)\frac{d\bs zd\bs y}{(2\pi)^{d}} \\
@@ -1024,7 +1038,7 @@ Suppose assumptions \ref{Assumption 4}, \ref{Assumption 2} and \ref{Assumption 3
         e^{-i\bs x\cdot\bs\ell}
         \mathscr A(\bs x)\mathscr B_{p}(\bs x) \frac{d\bs x}{{(2\pi)}^{d/2}}
     \end{align}
-    where $\mathscr A_{\bs \ell}:= Z^{obs}_{\bs \ell}/ C^{ZZobs}_{\bs \ell}$,  $\mathscr B_{p,\bs\ell} := i 2 \textit{\,imag}(\bs C^{(1)}_{p,\bs \ell}) Z^{obs}_{\bs\ell} / C^{ZZobs}_{\bs \ell}$ and 
+    where $\mathscr A_{\bs \ell}:= Z^{obs}_{\bs \ell}/ C^{ZZobs}_{\bs \ell}$,  $\mathscr B_{p,\bs\ell} := i 2 \textit{\,imag}(\bs C^{(1)}_{p,\bs \ell}) Z^{obs}_{\bs\ell} / C^{ZZobs}_{\bs \ell}$ and
     the normalizing constant
     $A_{\bs\ell}$ is given by
     \begin{align}
@@ -1053,7 +1067,7 @@ E\big(Z^{obs}_{\bs k+\bs \ell}Z^{obs}_{-\bs k}\big)
 where $w_{\bs k,\bs\ell}\geq 0$ are normalized so that $\hat\phi_{\bs\ell}$ has expected value $\phi_{\bs\ell} + \mathcal O(\phi^2)$ using (\ref{eq: first order appendix behavior of ZZ}). Assuming $\bs\ell\neq 0$, the Gaussian part of the variance of $Z^{obs}_{\bs k+\bs \ell}Z^{obs}_{-\bs k}/(\bs \xi_{\bs \ell}\cdot \bs f_{\bs k,\bs\ell})$ can be computed as follows
 \begin{align*}
 \text{var}\left(\frac{Z^{obs}_{\bs k+\bs \ell}Z^{obs}_{-\bs k}}{\bs \xi_{\bs \ell}\cdot \bs f_{\bs k,\bs\ell}}
-\right) 
+\right)
 & = \frac{1}{|\bs \xi_{\bs \ell}\cdot \bs f_{\bs k,\bs\ell}|^2}\Big[E(Z^{obs}_{\bs k+\bs\ell}Z^{obs}_{-\bs k}Z^{obs}_{-\bs k-\bs\ell}Z^{obs}_{\bs k})  - E(Z^{obs}_{\bs k+\bs\ell}Z^{obs}_{-\bs k})E(Z^{obs}_{-\bs k-\bs\ell}Z^{obs}_{\bs k}) \Big] \\
 &\approx \frac{1}{|\bs \xi_{\bs \ell}\cdot \bs f_{\bs k,\bs\ell}|^2}\underbrace{\Bigl[E(Z^{obs}_{\bs k+\bs\ell}Z^{obs}_{-\bs k-\bs\ell})E(Z^{obs}_{\bs k}Z^{obs}_{-\bs k})  + E(Z^{obs}_{\bs k+\bs\ell}Z^{obs}_{\bs k})E(Z^{obs}_{-\bs k}Z^{obs}_{-\bs k-\bs\ell}) \Bigr]}_{\textit{only keeping the Gaussian part of the trispectrum}} \\
 & = \frac{C^{ZZobs}_{\bs k+\bs\ell} C^{ZZobs}_{\bs k}}{|\bs \xi_{\bs \ell}\cdot \bs f_{\bs k,\bs\ell}|^2}\big[\delta_{\bs 0}^2   + \delta_{2\bs k+\bs\ell}^2 \big].
@@ -1091,7 +1105,7 @@ If we ignore the term $\delta_{2\bs k+\bs\ell}^2$, which only activates at the p
 where $\mathscr A_{\bs\ell}:= Z^{obs}_{\bs\ell}/ C^{ZZobs}_{\bs\ell}$, $\mathscr D_{p,\bs\ell}:=\bs C^{(1)}_{p,\bs\ell}Z^{obs}_{\bs\ell}/C^{ZZobs}_{\bs\ell}$ and $\mathscr C_{p,\bs\ell}:=\bs C^{{(1)}^*}_{p,\bs\ell}Z^{obs}_{\bs\ell}/C^{ZZobs}_{\bs\ell}$. Notice that the Fourier transform of $\mathscr D_{p}(\bs x)  - \mathscr C_{p}(\bs x)$ can be simplified as follows
 \begin{align*}
 \mathscr D_{p,\bs \ell}  - \mathscr C_{p,\bs \ell}
-& = \bigl[\bs C^{(1)}_{p,\bs \ell} - \bs C^{{(1)}^*}_{p,\bs \ell}\bigr]\frac{Z^{obs}_{\bs\ell}}{C^{ZZobs}_{\bs\ell}} 
+& = \bigl[\bs C^{(1)}_{p,\bs \ell} - \bs C^{{(1)}^*}_{p,\bs \ell}\bigr]\frac{Z^{obs}_{\bs\ell}}{C^{ZZobs}_{\bs\ell}}
  = i 2 \textit{\,imag}(\bs C^{(1)}_{p,\bs\ell})\frac{Z^{obs}_{\bs\ell}}{C^{ZZobs}_{\bs\ell}}.
 \end{align*}
 This gives (\ref{appendix-claim def of quad est}) as was to be shown.
@@ -1099,11 +1113,11 @@ This gives (\ref{appendix-claim def of quad est}) as was to be shown.
 The normalizing constant $A_{\bs\ell}$ is defined so that the right hand of (\ref{first quad est form in proof}) is unbiased (up to first order). Utilizing (\ref{eq: first order appendix behavior of ZZ}) this unbiased constraint is written as follows
 \begin{align}
  1 &= A_{\bs\ell}\int \frac{|\bs \xi_{\bs \ell}\cdot \bs f_{\bs k,\bs\ell}|^2}{C^{ZZobs}_{\bs k+\bs \ell} C^{ZZobs}_{\bs k}} \frac{d\bs k}{{(2\pi)}^{d/2}}  \nonumber\\
-&= A_{\bs\ell}\int \frac{\bigl|\bs \xi_{\bs \ell}\cdot\bs C^{(1)}_{\bs k+\bs \ell}  - \bs\xi_{\bs \ell}\cdot\bs C^{(1)}_{\bs k} \bigr|^2}{C^{ZZobs}_{\bs k+\bs \ell} C^{ZZobs}_{\bs k}} \frac{d\bs k}{{(2\pi)}^{d/2}} 
+&= A_{\bs\ell}\int \frac{\bigl|\bs \xi_{\bs \ell}\cdot\bs C^{(1)}_{\bs k+\bs \ell}  - \bs\xi_{\bs \ell}\cdot\bs C^{(1)}_{\bs k} \bigr|^2}{C^{ZZobs}_{\bs k+\bs \ell} C^{ZZobs}_{\bs k}} \frac{d\bs k}{{(2\pi)}^{d/2}}
 \nonumber\\
 %% ----- extra detail
 % &= A_{\bs\ell}\int \frac{\bigl|\bs \xi_{\bs \ell}\cdot\bs C^{(1)}_{\bs k+\bs \ell}\bigr|^2  + \bigl|  \bs\xi_{\bs \ell}\cdot\bs C^{(1)}_{\bs k}\bigr|^2 -  \big(\bs\xi^*_{\bs\ell}\cdot\bs C^{{(1)}^*}_{
-% \bs k+\bs\ell}\big)\big(\bs\xi_{\bs\ell}\cdot\bs C^{(1)}_{\bs k}\big) -  \big(\bs \xi_{\bs \ell}\cdot\bs C^{(1)}_{\bs k+\bs \ell}\big)\big(\bs\xi^*_{\bs\ell} \cdot \bs C^{{(1)}^*}_{k}\big)  }{C^{ZZobs}_{\bs k+\bs\ell} C^{ZZobs}_{\bs k}} \frac{d\bs k}{{(2\pi)}^{d/2}}  
+% \bs k+\bs\ell}\big)\big(\bs\xi_{\bs\ell}\cdot\bs C^{(1)}_{\bs k}\big) -  \big(\bs \xi_{\bs \ell}\cdot\bs C^{(1)}_{\bs k+\bs \ell}\big)\big(\bs\xi^*_{\bs\ell} \cdot \bs C^{{(1)}^*}_{k}\big)  }{C^{ZZobs}_{\bs k+\bs\ell} C^{ZZobs}_{\bs k}} \frac{d\bs k}{{(2\pi)}^{d/2}}
 %\\
 &= A_{\bs\ell}\sum_{p,q = 1}^d\bs\xi_{p,\bs\ell}\bs\xi^*_{q,\bs\ell}\int \frac{\bs C^{(1)}_{p,\bs k+\bs \ell} \bs C^{{(1)}^*}_{q,\bs k+\bs \ell} + \bs C^{(1)}_{p,\bs k} \bs C^{{(1)}^*}_{q,\bs k}  -     \bs C^{(1)}_{p,\bs k+\bs \ell} \bs C^{{(1)}^*}_{q,\bs k} - \bs C^{{(1)}^*}_{p,\bs k+\bs \ell} \bs C^{(1)}_{q,\bs k} }{C^{ZZobs}_{\bs k+\bs\ell} C^{ZZobs}_{\bs k}} \frac{d\bs k}{{(2\pi)}^{d/2}}  \nonumber\\
 &= A_{\bs\ell}\sum_{p,q = 1}^d\bs\xi_{p,\bs\ell}\bs\xi^*_{q,\bs\ell}\int  e^{-i\bs x\cdot\bs \ell} \left[2\mathscr A_{p,q}(\bs x)\mathscr B(\bs x)  - \mathscr C_{p}(\bs x)\mathscr C_{q}(\bs x) -  \mathscr D_{p}(\bs x)\mathscr D_{q}(\bs x)\right]  \frac{d\bs x}{{(2\pi)}^{d/2}}\label{Aell derivation 11}
@@ -1142,7 +1156,7 @@ where $\mathscr A_{p,q, \bs\ell}:= \bs C^{(1)}_{p,\bs\ell} \bs C^{{(1)}^*}_{q,\b
 \end{claim}
 
 \begin{proof}
-    Recall Definition \ref{def: quad est applied to X} which states that $\hat\phi_{\bs \ell}\{X,\!X\}$ denotes the quadratic estimate applied to data $X(\bs x)$. Therefore 
+    Recall Definition \ref{def: quad est applied to X} which states that $\hat\phi_{\bs \ell}\{X,\!X\}$ denotes the quadratic estimate applied to data $X(\bs x)$. Therefore
     \begin{align}
         E\big(\hat\phi_{\bs \ell}\{X,\!X\} \, \hat\phi_{\bs \ell^\prime}\{X,\!X\}^*\big)
         & = A_{\bs \ell}A_{\bs \ell^\prime}
@@ -1158,7 +1172,7 @@ where $\mathscr A_{p,q, \bs\ell}:= \bs C^{(1)}_{p,\bs\ell} \bs C^{{(1)}^*}_{q,\b
     \begin{align*}
         E\bigl(X_{\bs k+\bs \ell}X_{-\bs k}X_{-\bs k^\prime-\bs\ell^\prime}X_{\bs k^\prime}\bigr)
         &=C^{X\!X}_{\bs k+\bs \ell}C^{X\!X}_{-\bs k^\prime}\bigl( \delta_{\bs\ell}\delta_{\bs\ell^\prime} +  \delta_{\bs k-\bs k^\prime + \bs \ell-\bs\ell^\prime}\delta_{\bs k-\bs k^\prime} +  \delta_{\bs k + \bs k^\prime +\bs\ell}\delta_{\bs k + \bs k^\prime +\bs\ell^\prime}   \bigr) \\
-        &=C^{X\!X}_{\bs k+\bs\ell}C^{X\!X}_{-\bs k^\prime}\bigl( \delta_{\bs\ell}\delta_{\bs\ell^\prime} +  \delta_{ 
+        &=C^{X\!X}_{\bs k+\bs\ell}C^{X\!X}_{-\bs k^\prime}\bigl( \delta_{\bs\ell}\delta_{\bs\ell^\prime} +  \delta_{
         \bs\ell-\bs\ell^\prime}\delta_{\bs k-\bs k^\prime} +  \delta_{\bs\ell-\bs\ell^\prime}\delta_{\bs k+\bs k^\prime +\bs\ell^\prime}   \bigr).
     \end{align*}
     The term $\delta_{\bs\ell}\delta_{\bs\ell^\prime}$ is only nonzero  when $\bs\ell=\bs\ell^\prime=0$. Furthermore, by a change of variables, one can see that effect of the terms $\delta_{ \bs\ell-\bs\ell^\prime}\delta_{\bs k-\bs k^\prime}$ and $ \delta_{\bs\ell-\bs\ell^\prime}\delta_{\bs k+\bs k^\prime +\bs \ell^\prime}$ in (\ref{wicks term in Cvar}) are identical. Therefore assuming $\bs \ell \neq 0$ and replacing  $E\bigl(X_{\bs k+\bs \ell}X_{-\bs k}X_{-\bs k^\prime-\bs\ell^\prime}X_{\bs k^\prime}\bigr)$ in (\ref{wicks term in Cvar}) with $2C^{X\!X}_{\bs k+\bs\ell}C^{X\!X}_{-\bs k^\prime}\delta_{ \bs\ell-\bs\ell^\prime}\delta_{\bs k-\bs k^\prime}$ gives (\ref{appendix, claim raw var}). A similar approach to the derivation for (\ref{Aell derivation 11}) can be used to establish (\ref{appendix, claim fast var}). Finally, if one replaces $C^{X\!X}_{\bs k}$ in (\ref{appendix, claim raw var}) with the marginal spectral density $C^{ZZobs}_{\bs k}$ then using (\ref{Aell derivation 11}) one obtains $C_{\bs\ell}^{\text{\rm var }\hat{\phi}} =  2{(2\pi)}^{-d/2} A_{\bs\ell}$.
@@ -1189,11 +1203,11 @@ where $\mathscr A_{p,q, \bs\ell}:= \bs C^{(1)}_{p,\bs\ell} \bs C^{{(1)}^*}_{q,\b
         - {\bs C^{(2)}_{p,q,\bs k + \bs\omega}}
         \Bigr)\frac{d\bs\omega}{(2\pi)^{d/2}}.
     \end{align}
-    Define $\hat\phi_{\bs \ell}^{\text{bias}}:=\hat\phi_{\bs \ell}\big\{\mathcal O(\phi^2)_{\bs k+\bs \ell, -\bs k}\big\}$ (see Definition \ref{def: quad est applied to X}), where the quadratic estimate $\hat\phi_{\bs \ell}$ satisfies all the assumptions given in Claim \ref{appendix, claim: quad est derivations}. Then 
+    Define $\hat\phi_{\bs \ell}^{\text{bias}}:=\hat\phi_{\bs \ell}\big\{\mathcal O(\phi^2)_{\bs k+\bs \ell, -\bs k}\big\}$ (see Definition \ref{def: quad est applied to X}), where the quadratic estimate $\hat\phi_{\bs \ell}$ satisfies all the assumptions given in Claim \ref{appendix, claim: quad est derivations}. Then
     \begin{align}
     	\label{eq: the form of hatphibias}
         \hat\phi_{\bs \ell}^{\text{bias}}&= 2\sum_{p,q=1}^d
-    	\int 
+    	\int
     	\bs\theta_{p,\bs\omega}\bs\theta_{q,\bs \ell - \bs\omega}\, \hat\phi_{\bs \ell}\Big\{{\bs C^{(2)}_{p,q,\bs k}}- {\bs C^{(2)}_{p,q,\bs k + \bs\omega}}\Big\}\frac{d\bs\omega}{(2\pi)^{d/2}}
    	\end{align}
     and the spectral density of $\hat\phi_{\bs \ell}^{\text{bias}}$, under a mean zero Gaussian random field model for $\bs\theta(\bs x)$ with spectral density matrix $C_{\bs \ell}^{\bs \theta\bs\theta}$, satisfies
@@ -1201,7 +1215,7 @@ where $\mathscr A_{p,q, \bs\ell}:= \bs C^{(1)}_{p,\bs\ell} \bs C^{{(1)}^*}_{q,\b
     	\label{eq: the form of the spectrum for hatphibias}
 		E\big(\hat\phi_{\bs \ell}^{\text{bias}} \hat\phi_{\bs \ell^\prime}^{\text{bias}^*}\big)
         &=
-        4\delta_{\bs\ell-\bs \ell^\prime}\!\!\! \sum_{p,q,p^\prime,q^\prime=1}^d \int 
+        4\delta_{\bs\ell-\bs \ell^\prime}\!\!\! \sum_{p,q,p^\prime,q^\prime=1}^d \int
         \Big(
         C^{\bs \theta\bs \theta}_{p,p^\prime,\bs \omega}C^{\bs \theta\bs \theta}_{q,q^\prime,\bs \ell - \bs \omega}
         + C^{\bs \theta\bs \theta}_{p,q^\prime,\bs \omega}C^{\bs \theta\bs \theta}_{q,p^\prime,\bs \ell - \bs \omega}
@@ -1221,7 +1235,7 @@ where $\mathscr A_{p,q, \bs\ell}:= \bs C^{(1)}_{p,\bs\ell} \bs C^{{(1)}^*}_{q,\b
         + \bs\theta_{q,\bs k^\prime - \bs \omega}\delta_{-\bs k}\delta_{\bs\omega+\bs\omega^\prime-\bs k^\prime} \\
         &- \bs\theta_{q,\bs k^\prime}\delta_{\bs\omega-\bs k}\delta_{\bs\omega^\prime-\bs k^\prime}
         - \bs\theta_{q,\bs k}\delta_{\bs\omega^\prime-\bs k}\delta_{\bs\omega-\bs k^\prime}
-        \Big)d\bs\omega. 
+        \Big)d\bs\omega.
     \end{align*}
     % \begin{align}
     %     \iint \frac{d\bs x\,d\bs y}{{(2\pi)}^d} e^{-i\bs x\cdot \bs k}e^{-i\bs y\cdot \bs k^\prime} \bs C^{(2)}_{p,q}(\bs x-\bs y)
@@ -1272,7 +1286,7 @@ where $\mathscr A_{p,q, \bs\ell}:= \bs C^{(1)}_{p,\bs\ell} \bs C^{{(1)}^*}_{q,\b
    %      \qquad\qquad\qquad\qquad\qquad\qquad\quad- {\bs C^{(2)}_{p,q,\bs\omega^\prime-\bs k^\prime}}\delta_{\bs\omega+\bs\omega^\prime-\bs k-\bs k^\prime}
    %      - {\bs C^{(2)}_{p,q,\bs\omega-\bs k^\prime}}\delta_{\bs\omega^\prime+\bs\omega-\bs k-\bs k^\prime}
    %      \Bigr)\nonumber\\
-        &=\sum_{p,q=1}^d\int 
+        &=\sum_{p,q=1}^d\int
         \bs\theta_{p,\bs\omega}\bs\theta_{q,\bs k+\bs k^\prime - \bs\omega}
 		 \Bigl(
          {\bs C^{(2)}_{p,q,-\bs k^\prime}}
