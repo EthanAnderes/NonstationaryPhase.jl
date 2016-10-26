@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex paper"] 1467394150 "paper.aux" "paper.bbl" "paper" 1467394152
+["bibtex paper"] 1467394150 "paper.aux" "paper.bbl" "paper" 1477509677
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "paper.aux" 1467394152 24273 53730b32b0b8a53cfd5e3e9c2efd7fde ""
+  "paper.aux" 1467394150 24273 53730b32b0b8a53cfd5e3e9c2efd7fde ""
   "paper.bcf" 0 -1 0 ""
   "refs.bib" 1457657282 12973 d86b10e3d8f79be44fe877a1ace016ab ""
   (generated)
-  "paper.blg"
   "paper.bbl"
-["pdflatex"] 1467394150 "paper.tex" "paper.pdf" "paper" 1467394152
+  "paper.blg"
+["pdflatex"] 1467394150 "paper.tex" "paper.pdf" "paper" 1477509677
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -178,7 +178,7 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1466713430 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1463979169 3873397 413fbfbbedb8e719ddc392043a7add02 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "figure1.pdf" 1456614008 17304 357e91b59d8c370a38ca6dc66a9aaef2 ""
+  "figure1.pdf" 1456619216 17304 357e91b59d8c370a38ca6dc66a9aaef2 ""
   "figure2.pdf" 1456619216 83368 0765a8d6708a3b4ed592b64e8d3f8b14 ""
   "figure3.pdf" 1456619216 152067 49e0dd3adb006b838a738eaa7bdf1f4b ""
   "figure4.pdf" 1456619216 664531 1008836b53d7e8de95bb4aab9ebede84 ""
@@ -186,14 +186,14 @@
   "imsart.cls" 1435623418 5669 1be259565a85a1f70ef82b287b469aee ""
   "imsart.cnf" 0 -1 0 ""
   "imsart.sty" 1435623418 96228 1b5f77adbf3d8178378811412ce45cbc ""
-  "paper.aux" 1467394152 24273 53730b32b0b8a53cfd5e3e9c2efd7fde ""
-  "paper.bbl" 1467394150 5167 a515185116e9ec6d782cbc60f946ec8a "bibtex paper"
-  "paper.out" 1467394152 1435 6fd92133e328a7e0fdfe4a63752b8342 ""
-  "paper.tex" 1467394148 141200 8d00496a2202ff711d06c6e17e77caca ""
-  "paper.toc" 1467394152 2050 d01dbcd9677afd6618cd14480ae5bbd3 ""
+  "paper.aux" 1467394150 24273 53730b32b0b8a53cfd5e3e9c2efd7fde ""
+  "paper.bbl" 1457657284 5167 a515185116e9ec6d782cbc60f946ec8a "bibtex paper"
+  "paper.out" 1466103795 1435 6fd92133e328a7e0fdfe4a63752b8342 ""
+  "paper.tex" 1477509676 141200 8d00496a2202ff711d06c6e17e77caca ""
+  "paper.toc" 1467393762 2050 d01dbcd9677afd6618cd14480ae5bbd3 ""
   (generated)
   "paper.pdf"
-  "paper.out"
   "paper.aux"
-  "paper.toc"
   "paper.log"
+  "paper.toc"
+  "paper.out"
